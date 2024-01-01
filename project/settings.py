@@ -138,3 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #ALLOWED_HOSTS = ['prepccjsom-production.up.railway.app']
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = [
+    "https://prepccjsom-production.up.railway.app",
+]
