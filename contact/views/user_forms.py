@@ -74,8 +74,8 @@ def user_update(request):
 class BootstrapAuthenticationForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(BootstrapAuthenticationForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'class': 'form-control border-1 border-warning shadow-big mb-2'})
-        self.fields['password'].widget.attrs.update({'class': 'form-control border-1 border-warning shadow-big mb-4'})
+        self.fields['username'].widget.attrs.update({'class': 'form-control border-1 border-jsom shadow-big mb-2'})
+        self.fields['password'].widget.attrs.update({'class': 'form-control border-1 border-jsom shadow-big mb-4'})
 
 def login_view(request):
     form = BootstrapAuthenticationForm(request)

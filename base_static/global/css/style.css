@@ -20,9 +20,21 @@
     border-color: #f45038;
 }
 
+.bg-jsom{
+    background-color: #f45038;
+}
+
 .btn-outline-jsom{
     border-color: #f45038;
 }
 .btn-outline-jsom:hover{
     background-color: #f45038;
 }
+
+.border-jsom{
+    border:solid #f45038 1.5px;   
+}
+.border-jsom:focus{
+    border:solid #f45038 1.5px; 
+}
+

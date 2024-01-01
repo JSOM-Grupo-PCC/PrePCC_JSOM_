@@ -19,7 +19,7 @@ class RegisterForm(UserCreationForm):
         min_length=3,
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
@@ -28,7 +28,7 @@ class RegisterForm(UserCreationForm):
         min_length=3,
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
@@ -36,7 +36,7 @@ class RegisterForm(UserCreationForm):
         required=True,
         widget=forms.NumberInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
@@ -44,7 +44,7 @@ class RegisterForm(UserCreationForm):
         required=True,
         widget=forms.NumberInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
@@ -52,7 +52,7 @@ class RegisterForm(UserCreationForm):
         required=True,
         widget=forms.DateInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2',
+                'class': 'form-control border-1 border-jsom shadow-big mb-2',
                 'type': 'date', 
             }
         )
@@ -60,14 +60,14 @@ class RegisterForm(UserCreationForm):
     email = forms.CharField(
         widget=forms.EmailInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
     username = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
@@ -75,7 +75,7 @@ class RegisterForm(UserCreationForm):
         label="Senha",  
         widget=forms.PasswordInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
@@ -83,7 +83,7 @@ class RegisterForm(UserCreationForm):
         label="Confirme a Senha",
         widget=forms.PasswordInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-4'
+                'class': 'form-control border-1 border-jsom shadow-big mb-4'
             }
         )
     )
@@ -107,7 +107,7 @@ class RegisterUpdateForm(forms.ModelForm):
         help_text='*',
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         ),
         error_messages={
@@ -121,7 +121,7 @@ class RegisterUpdateForm(forms.ModelForm):
         help_text='*', 
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
@@ -130,7 +130,7 @@ class RegisterUpdateForm(forms.ModelForm):
         help_text='*',
         widget=forms.NumberInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
@@ -139,7 +139,7 @@ class RegisterUpdateForm(forms.ModelForm):
         help_text='*',
         widget=forms.NumberInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
@@ -148,7 +148,7 @@ class RegisterUpdateForm(forms.ModelForm):
         help_text='*',
         widget=forms.NumberInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2',
+                'class': 'form-control border-1 border-jsom shadow-big mb-2',
                 'type': 'date',  # Adicionado para suporte a data
             }
         )
@@ -160,7 +160,7 @@ class RegisterUpdateForm(forms.ModelForm):
         help_text='*', 
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
@@ -169,7 +169,7 @@ class RegisterUpdateForm(forms.ModelForm):
         help_text='*', 
         widget=forms.EmailInput(
             attrs={
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         )
     )
@@ -180,7 +180,7 @@ class RegisterUpdateForm(forms.ModelForm):
         widget=forms.PasswordInput(
             attrs={
                 "autocomplete": "new-password",
-                'class': 'form-control border-1 border-warning shadow-big mb-2'
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
             }
         ),
         required=False,
@@ -192,7 +192,7 @@ class RegisterUpdateForm(forms.ModelForm):
         widget=forms.PasswordInput(
             attrs={
                 "autocomplete": "new-password",
-                'class': 'form-control border-1 border-warning shadow-big mb-4'
+                'class': 'form-control border-1 border-jsom shadow-big mb-4'
             }
         ),
         help_text='Use the same password as before.',
