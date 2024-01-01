@@ -12113,4 +12113,43 @@ textarea.form-control-lg {
   }
 }
 
+.w-5{
+  width: 15vh !important;
+}
+
+.link-jsom {
+  color: #f45038  !important;
+}
+
+.link-jsom:hover {
+  transition: 0.5s ease-in-out;
+  color: #9e1500  !important;
+  font: 600;
+}
+
+.text-jsom{
+  color:  #f45038;
+}
+
+.alert-jsom{
+  border-color: #f45038;
+}
+
+.bg-jsom{
+  background-color: #f45038;
+}
+
+.btn-outline-jsom{
+  border-color: #f45038;
+}
+.btn-outline-jsom:hover{
+  background-color: #f45038;
+}
+
+.border-jsom{
+  border:solid #f45038 1.5px;   
+}
+.border-jsom:focus{
+  border:solid #f45038 1.5px; 
+}
 /*# sourceMappingURL=bootstrap.css.map */
