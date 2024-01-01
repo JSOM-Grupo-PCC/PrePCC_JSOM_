@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 #(para o sistema em produção)
-ALLOWED_HOSTS = ['https://prepccjsom-production.up.railway.app']
+ALLOWED_HOSTS = ['prepccjsom-production.up.railway.app']
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -136,7 +136,3 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-try:
-    from project.local_settings import *
-except ImportError:
-    ...
