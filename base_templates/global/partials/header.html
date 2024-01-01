@@ -1,0 +1,51 @@
+{% load static %}
+<header>
+  <nav class="navbar navbar-dark bg-dark fixed-top position-relative p-lg-3 shadow-big rounded-4 rounded-top-0">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between w-100">
+        <a class="navbar-brand link-jsom link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover mx-lg-2 ms-2 fs-4" href=" {% url "contact:index" %} ">
+          <img
+            src="{% static "img/logo3_claro.png" %}"
+            class="w-5"
+            alt="logo JSOM"
+          />
+        </a>
+        <button class="navbar-toggler text-jsom" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+            <a class="navbar-brand link-jsom link-offset-2 link-underline-opacity-0 fs-4 " href=" {% url "contact:index" %} ">Treinos do            
+              {% if user.is_staff %}
+                <span class="fw-bold">ADM</span>
+              {% endif %} 
+              {{ user }}
+            </a>
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mb-3">
+
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link active link-opacity-50-hover" aria-current="page" href=" {% url "contact:user_update" %} ">Profile</a>
+              </li>                    
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href=" {% url "contact:logout" %} ">Logout</a>
+              </li>               
+              {% if user.is_staff %}
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href=" {% url "contact:register" %} ">Registe User</a>
+                </li>
+              {% endif %}                        
+            {% endif %}
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
