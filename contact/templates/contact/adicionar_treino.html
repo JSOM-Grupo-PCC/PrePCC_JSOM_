@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Treino</title>
+</head>
+<body>
+    <h1>Adicionar Treino</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Adicionar Treino</button>
+    </form>
+    <a href="{% url 'contact:index' %}">Voltar para a lista de treinos</a>
+</body>
+</html>
