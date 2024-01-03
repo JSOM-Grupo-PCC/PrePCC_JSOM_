@@ -21,7 +21,8 @@
 }
 
 .bg-jsom{
-    background-color: #f45038;
+    background-color: #F45038;
+    color: #212529;
 }
 
 .btn-outline-jsom{
@@ -38,3 +39,25 @@
     border:solid #f45038 1.5px; 
 }
 
+.overflow-wrap-break-word {
+    overflow-wrap: break-word;
+}
+
+/* Estilo padrão para largura 60% */
+.w-60 {
+    width: 60% !important;
+}
+
+/* Adiciona estilo quando a largura da tela for menor que 768px */
+@media (max-width: 768px) {
+    .w-60 {
+        width: 80% !important; /* Ajuste a largura conforme necessário para telas menores */
+    }
+}
+
+/* Adiciona estilo quando a largura da tela for menor que 576px */
+@media (max-width: 576px) {
+    .w-60 {
+        width: 100% !important; /* Ajuste a largura conforme necessário para telas ainda menores */
+    }
+}
