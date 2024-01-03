@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Detalhes do Treino</title>
-</head>
-<body>
-    <h1>{{ treino.nome }}</h1>
-    <p>Categoria: {{ treino.categoria }}</p>
-    <p>Descrição: {{ treino.descricao }}</p>
-    <img src="{{ treino.imagem.url }}" alt="{{ treino.nome }}">
-    <p>Dono: {{ treino.owner.username }}</p>
-    <a href="{% url 'contact:index' %}">Voltar para a lista de treinos</a>
-</body>
-</html>
+{% extends "global/base.html" %}
+{% load static %}
+{% block corpo %}
+    <div class="d-flex-column">
+        {% if treino.id %}
+        {% if treino.imagem %}
+            <img alt="{{ treino.nome }}" src="{{ treino.imagem.url }}" style="object-fit: cover;" class="border-jsom shadow-big img-fluid">
+        {% else %}
+            <img alt="{{ treino.nome }}" src="{% static "img/treino_padao.png" %}" style="object-fit: cover;" class="border-jsom shadow-big img-fluid">
+        {% endif %}
+        <h1>{{ treino.nome }}</h1>
+        <p>Categoria: {{ treino.categoria }}</p>
+        <p>Descrição: {{ treino.descricao }}</p>
+        <p>Dono: {{ treino.owner.username }}</p>
+        <a href="{% url 'contact:index' %}">Voltar para a lista de treinos</a>
+        {% else %}
+            <h1 class="fs-2 form-text">não existe terino cadastrado nesse ID: {{treino.id}}</h1>
+        {% endif %}
+    </div>
+{% endblock corpo %}

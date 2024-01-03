@@ -1,16 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Atualizar Treino</title>
-</head>
-<body>
-    <h1>Atualizar Treino</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Atualizar Treino</button>
-    </form>
-    <a href="{% url 'contact:index' %}">Voltar para a lista de treinos</a>
-</body>
-</html>
+{% extends "global/base.html" %}
+{% block corpo %}
+    <div class="container m-3">
+        <h1 class="mb-3 fs-2 form-text text-center">Atualizar Treino</h1>
+        <form method="post" enctype="multipart/form-data" class="row g-3 d-flex flex-column align-items-center" >
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="col-md-6">
+                <div class="d-flex">
+                    <label for="{{field.id_for_label}}" class="form-label fw-bold text-shadow-big">{{field.label}} </label>
+                    {% if field.help_text %}
+                    <p class="help-text text-danger fw-bold ">
+                        {{ field.help_text }}
+                    </p>
+                    {% endif %}
+                </div>
+                {{ field }}
+                {{ field.errors }}
+                </div>
+                {% if field.name == 'imagem' and field.value.url %}
+                    <div class="col-md-6">
+                        <img src="{{ field.value.url }}" class="img-fluid border-jsom shadow-big mb-2 rounded-2 w-100" style="object-fit: cover; " alt="">
+                    </div>
+                {% endif %}    
+            {% endfor %}
+            <div class="col-md-6">
+                <input class="btn bg-jsom shadow-big w-100 mb-5 fs-5 fw-semibold" type="submit"></input>
+            </div>
+        </form>
+    </div>
+{% endblock corpo %}

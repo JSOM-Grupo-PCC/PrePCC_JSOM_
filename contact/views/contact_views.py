@@ -19,7 +19,12 @@ def index(request):
 @login_required(login_url='contact:login')
 def detalhes_treino(request, treino_id):
     treino = get_object_or_404(Treino, pk=treino_id, owner=request.user)
-    return render(request, 'contact/detalhes_treino.html', {'treino': treino})
+    site_title = f'{treino.nome}_{treino.categoria}'
+    context = {
+        'site_title': site_title,
+        'treino': treino
+    }
+    return render(request, 'contact/detalhes_treino.html', context)
 
 @login_required(login_url='contact:login')
 def adicionar_treino(request):

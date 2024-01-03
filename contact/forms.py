@@ -264,3 +264,47 @@ class TreinoForm(forms.ModelForm):
     class Meta:
         model = Treino
         fields = ['nome', 'categoria', 'descricao', 'imagem']
+
+
+    nome = forms.CharField(
+        min_length=2,
+        required=True,
+        help_text='*',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+            }
+        ),
+        error_messages={
+            'min_length': 'Please, add more than 2 letters.'
+        }
+    )
+    categoria = forms.ChoiceField(
+        required=True,
+        help_text='*',
+        widget=forms.Select(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+            }
+        ),
+        choices=Treino.CATEGORIA_CHOICES  # Acesse as opções diretamente da instância do modelo
+    )
+
+    descricao = forms.CharField(
+        required=False,
+        widget=forms.Textarea(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+            }
+        ),
+    )
+
+    imagem = forms.ImageField(
+        required=False,
+        widget=forms.FileInput(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-2',
+                'accept': 'image/*',
+            }
+        ),
+    )

@@ -14,14 +14,15 @@ class UserProfile(models.Model):
 class Treino(models.Model):
     nome = models.CharField(max_length=100)
 
-    # Define um campo de caracteres para a categoria, com um conjunto limitado de escolhas
-    categoria = models.CharField(max_length=9, choices=[
+    CATEGORIA_CHOICES = [
         ('Treino(A)', 'Treino-A'),
         ('Treino(B)', 'Treino-B'),
         ('Treino(C)', 'Treino-C'),
         ('Treino(D)', 'Treino-D'),
         ('Treino(E)', 'Treino-E'),
-    ])
+    ]
+
+    categoria = models.CharField(max_length=9, choices=CATEGORIA_CHOICES)
     descricao = models.TextField(blank=True)
     imagem = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
     owner = models.ForeignKey(
