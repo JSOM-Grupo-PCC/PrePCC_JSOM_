@@ -1,20 +1,22 @@
 {% extends "global/base.html" %}
 {% load static %}
 {% block corpo %}
-    <div class="d-flex-column">
-        {% if treino.id %}
-        {% if treino.imagem %}
-            <img alt="{{ treino.nome }}" src="{{ treino.imagem.url }}" style="object-fit: cover;" class="border-jsom shadow-big img-fluid">
-        {% else %}
-            <img alt="{{ treino.nome }}" src="{% static "img/treino_padao.png" %}" style="object-fit: cover;" class="border-jsom shadow-big img-fluid">
-        {% endif %}
-        <h1>{{ treino.nome }}</h1>
-        <p>Categoria: {{ treino.categoria }}</p>
-        <p>Descrição: {{ treino.descricao }}</p>
-        <p>Dono: {{ treino.owner.username }}</p>
-        <a href="{% url 'contact:index' %}">Voltar para a lista de treinos</a>
-        {% else %}
-            <h1 class="fs-2 form-text">não existe terino cadastrado nesse ID: {{treino.id}}</h1>
-        {% endif %}
+    <div class="container m-3 d-flex-column justify-content-center align-items-center w-60">            
+        <h1 class="mb-3 fs-1 form-text text-center text-wrap overflow-wrap-break-word">{{ treino.nome }}        
+            <span class="fw-bold fs-5 p-1 rounded-3 bg-jsom">{{ treino.categoria }}</span>
+        </h1>
+        <div class="d-flex flex-column align-items-center justify-content-center mb-3">
+            {% if treino.imagem %}
+            <div class="d-flex align-items-center justify-content-center">
+                <img alt="{{ treino.nome }}" src="{{ treino.imagem.url }}" style="object-fit: cover;" class="rounded-4 border-jsom shadow-big img-fluid">
+            </div>
+            {% else %}
+            <div class="d-flex align-items-center justify-content-center">
+                <img alt="{{ treino.nome }}" src="{% static "img/treino_padao.png" %}" style="object-fit: cover; padding: 10px;" class=" rounded-4 border-jsom shadow-big img-fluid">
+            </div>
+            {% endif %}
+        </div>            
+        <p class="overflow-wrap-break-word text-wrap text-center "><span class="fw-bold fs-3 form-text">Descrição:</span> <br> {{ treino.descricao }}</p>        
+        {% comment %} <p>Dono: {{ treino.owner.username }}</p> {% endcomment %}
     </div>
 {% endblock corpo %}

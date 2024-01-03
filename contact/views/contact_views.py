@@ -6,14 +6,17 @@ from contact.forms import TreinoForm
 
 @login_required(login_url='contact:login')
 def index(request):
-
+    user = request.user
     treinos = Treino.objects.filter(owner=request.user)
-
+    site_title = f'Treinos de {user}'
+    context = {
+        'site_title': site_title,
+        'treinos': treinos
+    }
     return render(
         request,
         'contact/index.html',
-
-        {'treinos': treinos}
+        context
     )
 
 @login_required(login_url='contact:login')
@@ -37,7 +40,12 @@ def adicionar_treino(request):
             return redirect('contact:index')
     else:
         form = TreinoForm()
-    return render(request, 'contact/adicionar_treino.html', {'form': form})
+    site_title = "Adicionando novo treino"
+    context = {
+        'site_title': site_title,
+        'form': form
+    }
+    return render(request, 'contact/adicionar_treino.html', context)
 
 @login_required(login_url='contact:login')
 def atualizar_treino(request, treino_id):
@@ -49,7 +57,14 @@ def atualizar_treino(request, treino_id):
             return redirect('contact:index')
     else:
         form = TreinoForm(instance=treino)
-    return render(request, 'contact/atualizar_treino.html', {'form': form, 'treino': treino})
+    
+    site_title = f'Editando {treino.nome}'
+    context = {
+        'site_title': site_title,
+        'treino': treino,
+        'form': form,
+    }
+    return render(request, 'contact/atualizar_treino.html', context,)
 
 @login_required(login_url='contact:login')
 def excluir_treino(request, treino_id):
