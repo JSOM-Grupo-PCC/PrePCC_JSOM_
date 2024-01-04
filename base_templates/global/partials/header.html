@@ -34,15 +34,21 @@
             {% if user.is_authenticated %}
               {% if user.is_staff %}
                 <li class="nav-item">
-                  <a class="nav-link active link-opacity-50-hover" aria-current="page" href=" {% url "contact:user_update" %} ">Profile</a>
+                  <a class="nav-link fs-5 active link-opacity-50-hover" aria-current="page" href=" {% url "contact:user_update" %} ">Perfil</a>
                 </li>
               {% endif %}                    
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href=" {% url "contact:logout" %} ">Logout</a>
+                <a class="nav-link fs-5 active" aria-current="page" href=" {% url "contact:adicionar_treino" %} ">Adicionar Treino</a>
+              </li>              
+              <li class="nav-item">
+                <a class="nav-link fs-5 active text-jsom" aria-current="page" href=" {% url "contact:logout" %} ">Sair</a>
               </li>
             {% else %}
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href=" {% url "contact:register" %} ">Registe User</a>
+                <a class="nav-link fs-5 active" aria-current="page" href=" {% url "contact:register" %} ">Cadastrar</a>
+              </li>            
+              <li class="nav-item">
+                <a class="nav-link fs-5 active" aria-current="page" href=" {% url "contact:login" %} ">Fazer Login</a>
               </li>            
             {% endif %}
           </ul>

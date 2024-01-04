@@ -5,18 +5,32 @@
 
 <div class="w-100 mx-3 mt-3 table-responsive">
   {% include "global/partials/message.html" %}
-  <h1>Lista de Treinos</h1>
+  <h1 class="mb-3 fs-1 form-text text-center">Lista de Treinos</h1>
   {% if treinos %}
-    <ul>
-        {% for treino in treinos %}
-            <li>
-                <a href="{% url 'contact:detalhes_treino' treino.id %}">{{ treino.nome }}</a>
-                <a href="{% url 'contact:atualizar_treino' treino.id %}">Atualizar</a>
-                <a href="{% url 'contact:excluir_treino' treino.id %}">Excluir</a>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'contact:adicionar_treino' %}">Adicionar Treino</a>
+    <!-- Adicione o código do Accordion -->
+    <div class="accordion" id="treinosAccordion" data-bs-ride="false">
+    {% for categoria in categorias %}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+                    {{ categoria.1 }} <!-- Exibindo o nome da categoria -->
+                </button>
+            </h2>
+            <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse show" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#treinosAccordion">
+                <div class="accordion-body">
+                    <!-- Lista de treinos da categoria -->
+                    {% for treino in treinos %}
+                        {% if treino.categoria == categoria.0 %}
+                            <!-- Exiba as informações do treino -->
+                            <a class="link-jsom-subtle" href="{% url 'contact:detalhes_treino' treino.id %}">{{ treino.nome }}</a>
+                            <br>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
   {% else %}
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
@@ -27,7 +41,7 @@
       <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" width="30" height="30">
         <use xlink:href="#exclamation-triangle-fill"/>
       </svg>
-      <p class="fs-5 m-0"><strong>Atenção!</strong> Não existe nenhum treino aqui ainda, mais vc pode <a href="{% url 'contact:adicionar_treino' %}">adicionar Treino</a></p>
+      <p class="fs-5 m-0"><strong>Atenção!</strong> Não existe nenhum treino aqui ainda, mais vc pode <a href="{% url 'contact:adicionar_treino' %}" class="link-jsom-subtle">Adicionar Treino</a></p>
       
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>

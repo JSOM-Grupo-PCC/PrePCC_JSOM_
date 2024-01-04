@@ -16,7 +16,9 @@
             </div>
             {% endif %}
         </div>            
-        <p class="overflow-wrap-break-word text-wrap text-center "><span class="fw-bold fs-3 form-text">Descrição:</span> <br> {{ treino.descricao }}</p>        
+        <p class="overflow-wrap-break-word text-wrap text-center "><span class="fw-bold fs-3 form-text">Descrição:</span> <br> {{ treino.descricao }}</p>
+        <a class="link-jsom-subtle" href="{% url 'contact:atualizar_treino' treino.id %}">Atualizar</a>
+        <a class="link-jsom-subtle" href="{% url 'contact:excluir_treino' treino.id %}">Excluir</a>        
         {% comment %} <p>Dono: {{ treino.owner.username }}</p> {% endcomment %}
     </div>
 {% endblock corpo %}

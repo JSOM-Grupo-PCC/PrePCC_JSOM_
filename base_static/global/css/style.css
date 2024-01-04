@@ -48,6 +48,17 @@
     width: 60% !important;
 }
 
+.link-jsom-subtle{
+    color: #b91900;
+    font-weight: 600;
+    text-decoration: none;
+}
+.link-jsom-subtle:hover{
+    color: #b91900;
+    text-decoration: underline;
+    transition: 1.5s;
+}
+
 /* Adiciona estilo quando a largura da tela for menor que 768px */
 @media (max-width: 768px) {
     .w-60 {

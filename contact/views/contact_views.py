@@ -7,11 +7,13 @@ from contact.forms import TreinoForm
 @login_required(login_url='contact:login')
 def index(request):
     user = request.user
+    categorias = Treino.CATEGORIA_CHOICES
     treinos = Treino.objects.filter(owner=request.user)
     site_title = f'Treinos de {user}'
     context = {
         'site_title': site_title,
-        'treinos': treinos
+        'treinos': treinos,
+        'categorias': categorias,
     }
     return render(
         request,
