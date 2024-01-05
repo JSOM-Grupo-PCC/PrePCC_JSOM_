@@ -16,6 +16,10 @@
     color:  #f45038;
 }
 
+.text-jsom-escuro{
+    color:  #7c1100;
+}
+
 .alert-jsom{
     border-color: #f45038;
 }
@@ -25,9 +29,15 @@
     color: #212529;
 }
 
+.bg-jsom-claro{
+    background-color: #ffbbb15b;
+    color: #212529;
+}
+
 .btn-outline-jsom{
     border-color: #f45038;
 }
+
 .btn-outline-jsom:hover{
     background-color: #f45038;
 }
@@ -37,6 +47,10 @@
 }
 .border-jsom:focus{
     border:solid #f45038 1.5px; 
+}
+
+.border-jsom-accordion{
+    border:solid #966b6450 1.5px !important;   
 }
 
 .overflow-wrap-break-word {
@@ -72,3 +86,74 @@
         width: 100% !important; /* Ajuste a largura conforme necessário para telas ainda menores */
     }
 }
+
+
+/*butão de acordeon*/
+
+.accordion-button-jsom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x);
+    font-size: 1rem;
+    color: #460e00;
+    text-align: left;
+    background-color: #fadad5;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: var(--bs-accordion-transition);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .accordion-button-jsom {
+      transition: none;
+    }
+  }
+  .accordion-button-jsom:not(.collapsed) {
+    color: #460e00;
+    background-color: rgb(250, 194, 185);
+  }
+  .accordion-button-jsom:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-active-icon);
+    transform: var(--bs-accordion-btn-icon-transform);
+  }
+  .accordion-button-jsom::after {
+    flex-shrink: 0;
+    width: var(--bs-accordion-btn-icon-width);
+    height: var(--bs-accordion-btn-icon-width);
+    margin-left: auto;
+    content: "";
+    background-image: var(--bs-accordion-btn-icon);
+    background-repeat: no-repeat;
+    background-size: var(--bs-accordion-btn-icon-width);
+    transition: var(--bs-accordion-btn-icon-transition);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .accordion-button-jsom::after {
+      transition: none;
+    }
+  }
+  .accordion-button-jsom:hover {
+    z-index: 2;
+  }
+  .accordion-button-jsom:focus {
+    z-index: 3;
+    border-color: #460e00;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(255, 121, 98, 0.25);
+  }
+
+  .form-check-input{
+    border: 0.5px solid #460e00 !important;
+  }
+
+  .form-check-input:focus {
+    border-color: #fe8a86;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(253, 13, 13, 0.25);
+  }
+  .form-check-input:checked {
+    background-color: #f45038;
+    border-color: #f45038;
+  }
