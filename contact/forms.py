@@ -176,7 +176,7 @@ class RegisterUpdateForm(forms.ModelForm):
     )
 
     password1 = forms.CharField(
-        label="Password",
+        label="Senha",
         strip=False,
         widget=forms.PasswordInput(
             attrs={
@@ -188,7 +188,7 @@ class RegisterUpdateForm(forms.ModelForm):
     )
 
     password2 = forms.CharField(
-        label="Password 2⠀",
+        label="Confirme a Senha",
         strip=False,
         widget=forms.PasswordInput(
             attrs={
@@ -196,7 +196,6 @@ class RegisterUpdateForm(forms.ModelForm):
                 'class': 'form-control border-1 border-jsom shadow-big mb-4'
             }
         ),
-        help_text='Use the same password as before.',
         required=False,
     )
 

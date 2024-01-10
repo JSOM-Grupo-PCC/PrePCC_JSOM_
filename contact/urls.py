@@ -4,7 +4,7 @@ app_name = 'contact'
 
 urlpatterns = [
     
-    # user (CRUD)
+    # user 
     path('user/register/', views.register, name='register'),
     path('user/login/', views.login_view, name='login'),
     path('user/logout/', views.logout_view, name='logout'),
@@ -16,5 +16,9 @@ urlpatterns = [
     path('atualizar/<int:treino_id>/', views.atualizar_treino, name='atualizar_treino'),
     path('excluir/<int:treino_id>/', views.excluir_treino, name='excluir_treino'),
     
+    # admin
+    path('admin/lista_usuarios/', views.lista_usuarios, name='lista_usuarios'),
+
+    # index
     path('', views.index, name='index'),
 ]
