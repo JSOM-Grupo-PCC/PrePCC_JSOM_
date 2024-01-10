@@ -141,5 +141,3 @@ ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     "https://prepccjsom-production.up.railway.app",
 ]
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
