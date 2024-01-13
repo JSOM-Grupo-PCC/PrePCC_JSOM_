@@ -14,12 +14,8 @@
         {% for userProfile in users %}
             <tr>
                 <td scope="row">
-                    <a 
-                    class="link-jsom fw-bold link-offset-1 link-underline-opacity-0 link-underline-opacity-100-hover" 
-                    href=" 
-                    {% comment %} {% url "contact:contact" contact.id %}  {% endcomment %}
-                    "
-                    >
+                    <a class="link-jsom fw-bold link-offset-1 link-underline-opacity-0 link-underline-opacity-100-hover" 
+                    href="{% url 'contact:perfil_aluno' userProfile.user.id %}">
                     {{ userProfile.user.username }}
                     </a>
                 </td>

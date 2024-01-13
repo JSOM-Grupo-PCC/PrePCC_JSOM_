@@ -11,7 +11,6 @@ class RegisterForm(UserCreationForm):
         fields = [
             'first_name', 'last_name', 'peso', 'altura', 'data_nascimento', 
             'email', 'username', 'password1', 'password2',
-            
         ]
 
 

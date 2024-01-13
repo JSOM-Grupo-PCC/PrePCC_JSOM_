@@ -1,5 +1,6 @@
 from django.urls import path
 from contact import views
+
 app_name = 'contact'
 
 urlpatterns = [
@@ -17,7 +18,8 @@ urlpatterns = [
     path('excluir/<int:treino_id>/', views.excluir_treino, name='excluir_treino'),
     
     # admin
-    path('admin/lista_usuarios/', views.lista_usuarios, name='lista_usuarios'),
+    path('admin/lista_alunos/', views.lista_alunos, name='lista_alunos'),
+    path('admin/perfil_aluno/<int:user_id>/', views.perfil_aluno, name='perfil_aluno'),
 
     # index
     path('', views.index, name='index'),

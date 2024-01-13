@@ -1,0 +1,22 @@
+{% extends "global/base.html" %}
+{% block corpo %}
+<div class="w-100 table-responsive">
+    <h1 class="m-3 fs-1 form-text text-center">
+        Perfil do aluno <span class="text-jsom-escuro text-decoration-underline">{{user_profile.user.username}}</span>
+    </h1>
+    <div class="card border-jsom-claro shadow-big mx-4">
+        <div class="card-body">
+            <h5 class="card-title">Detalhes do Aluno
+            </h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Usuário:</strong> {{ user_profile.user.username }}</li>
+                <li class="list-group-item"><strong>Nome:</strong> {{ user_profile.user.first_name }}</li>
+                <li class="list-group-item"><strong>Sobrenome:</strong> {{ user_profile.user.last_name }}</li>
+                <li class="list-group-item"><strong>Peso:</strong> {{ user_profile.peso }}</li>
+                <li class="list-group-item"><strong>Altura:</strong> {{ user_profile.altura }}</li>
+                <li class="list-group-item"><strong>Idade:</strong> {{ idade }} Anos</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock corpo %}

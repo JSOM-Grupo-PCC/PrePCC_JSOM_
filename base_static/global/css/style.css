@@ -48,6 +48,12 @@
 .border-jsom:focus{
     border:solid #f45038 1.5px; 
 }
+.border-jsom-claro{
+    border:solid #6b0e0049 1.5px !important;   
+}
+.border-jsom-claro:focus{
+    border:solid #6b0e009d 1.5px !important; 
+}
 
 .border-jsom-accordion{
     border:solid #966b6450 1.5px !important;   
