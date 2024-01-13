@@ -26,11 +26,6 @@ SECRET_KEY = 'django-insecure-92f#op2p8tz07s)enicgr!3@6g%=f3yi8!ez@plg^yz)#12px)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
-# Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -116,7 +111,6 @@ TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
