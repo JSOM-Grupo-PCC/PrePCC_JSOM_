@@ -5,9 +5,11 @@ charset-normalizer==3.3.2
 colorama==0.4.6
 Django==4.2.7
 django-crispy-forms==2.1
+gunicorn==21.2.0
 idna==3.6
-numpy>=1.20.0,<1.27.0
+numpy==1.26.1
 opencv-python==4.8.1.78
+packaging==23.2
 Pillow==10.1.0
 requests==2.31.0
 soupsieve==2.5
