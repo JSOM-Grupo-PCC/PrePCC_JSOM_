@@ -1,13 +1,12 @@
 {% extends "global/base.html" %}
 {% block corpo %}
 <div class="w-100 table-responsive">
-    <h1 class="m-3 fs-1 form-text text-center">
-        Perfil do aluno <span class="text-jsom-escuro text-decoration-underline">{{user_profile.user.username}}</span>
+    <h1 class="m-3 fs-1 form-text text-center fw-bold">
+        Perfil do aluno <span class="text-jsom-escuro text-decoration-underline">{{ user_profile.user.username }}</span>
     </h1>
-    <div class="card border-jsom-claro shadow-big mx-4">
+    <div class="card border-jsom-claro shadow-big mx-4 mb-5">
         <div class="card-body">
-            <h5 class="card-title">Detalhes do Aluno
-            </h5>
+            <h5 class="card-title">Informações do Aluno</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><strong>Usuário:</strong> {{ user_profile.user.username }}</li>
                 <li class="list-group-item"><strong>Nome:</strong> {{ user_profile.user.first_name }}</li>
@@ -18,5 +17,73 @@
             </ul>
         </div>
     </div>
+    <h2 class="mt-4 mb-3 fs-3 form-text text-center">Lista de Treinos do Aluno</h2>
+    {% if treinos %}
+      <!-- Adicione o código do Accordion -->
+      <div class="accordion mx-3" id="treinosAccordion" data-bs-ride="false">
+      {% for categoria in categorias %}
+          <div class="accordion-item shadow-big border-1 border-jsom-accordion mb-3 rounded-2">
+              <h2 class="accordion-header " id="heading{{ forloop.counter }}">
+                  <button class="accordion-button-jsom  rounded-2 fw-bold text-jsom-escuro" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+                      {{ categoria.1 }} <!-- Exibindo o nome da categoria -->
+                  </button>
+              </h2>
+              <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse show" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#treinosAccordion">
+                <div class="accordion-body">
+                    <!-- Lista de treinos da categoria -->
+                    {% for treino in treinos %}
+                      {% if treino.categoria == categoria.0 %}
+                        <ul class="list-group">
+                          <li class="list-group-item d-flex justify-content-between align-items-center align-items-end mb-2 border-jsom-accordion shadow-big ">
+                            <label class="form-check-label" for="firstCheckbox">
+                              <a class="link-jsom-subtle" href="{% url 'contact:detalhes_treino' treino.id %}">{{ treino.nome }}</a>
+                            </label>
+                            <div class="">
+                                <!--botão de deletar treino-->
+                                <button type="button" class="btn icon-link icon-link-hover p-2 btn-danger" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                                    </svg>
+                                </button>
+
+                                <!--botão de editar treino-->
+                                <button type="button" class="btn p-2 btn-warning icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                          </li>
+                        </ul>
+                      {% endif %}
+                    {% endfor %}              
+                    <!--botão de Adicinar novo treino-->
+                    <button type="button" class="btn mt-1 p-2 btn-primary icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                        </svg>
+                    </button>
+                </div>
+  
+              </div>
+          </div>
+      {% endfor %}
+      </div>
+    {% else %}
+      <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+          <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+      </svg>
+      <div class="alert alert-secondary alert-dismissible fade show d-flex justify-content-center mx-4" role="alert">
+        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" width="30" height="30">
+          <use xlink:href="#exclamation-triangle-fill"/>
+        </svg>
+        <p class="fs-5 m-0"><strong>Atenção!</strong> Não existe nenhum treino aqui ainda, mais vc pode <a href="{% url 'contact:adicionar_treino' %}" class="link-jsom-subtle">Adicionar Treino</a></p>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endif %}
 </div>
 {% endblock corpo %}
