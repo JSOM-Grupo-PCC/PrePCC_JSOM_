@@ -13,9 +13,10 @@ urlpatterns = [
 
     # treino (CRUD)
     path('detalhes/<int:treino_id>/', views.detalhes_treino, name='detalhes_treino'),
-    path('adicionar/', views.adicionar_treino, name='adicionar_treino'),
-    path('atualizar/<int:treino_id>/', views.atualizar_treino, name='atualizar_treino'),
-    path('excluir/<int:treino_id>/', views.excluir_treino, name='excluir_treino'),
+    # treino_admin (CRUD)
+    path('admin/adicionar/<int:user_id>/', views.adicionar_treino_admin, name='adicionar_treino_admin'), # Só admin pode adcionar treinos para os alunos 
+    path('admin/atualizar/<int:treino_id>/', views.atualizar_treino_admin, name='atualizar_treino_admin'),# Só admin pode atulaizar treinos para os alunos
+    path('admin/excluir/<int:treino_id>/', views.excluir_treino_admin, name='excluir_treino_admin'),# Só admin pode excluir treinos dos alunos
     
     # admin
     path('admin/lista_alunos/', views.lista_alunos, name='lista_alunos'),
