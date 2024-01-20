@@ -1,4 +1,4 @@
-# Projeto de Conclusão de Curso (PCC)
+# Projeto de Conclusão de Curso (PCC) - Django
 
 ## Requisitos e Andamento
 
@@ -16,3 +16,8 @@ Legendas:
 :yellow_circle: Em Progresso  
 :orange_circle: Em Andamento
 
+## Configuração do Ambiente Virtual (venv)
+
+1. **Criar Ambiente Virtual:**
+   ```bash
+   python -m venv venv
