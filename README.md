@@ -16,8 +16,36 @@ Legendas:
 :yellow_circle: Feito em parte <br>
 :large_blue_circle: Em Andamento 
 
-## Configuração do Ambiente Virtual (venv)
+## Diagrama Caso de Uso
+![Caso de Uso](https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/50206489-0ab5-4f2a-b6a5-8d9334d95e3d)
 
-1. **Criar Ambiente Virtual:**
+## Diagrama de classe
+![Classe](https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/488711c6-453b-42c3-803d-b81362bcd171)
+
+## Diagrama Entidade de Relacionamentos 
+![Entidade de Relacionamentos](https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/48cc20b4-b8c1-4b31-b2cd-79c7d5dd93f1)
+
+## Configuração do Ambiente
+
+1. **Pré-requisitos:**
+   - Python 3.x
+   - Django
+   - Outras dependências (verifique o arquivo `requirements.txt`)
+
+2. **Configuração do Ambiente Virtual:**
    ```bash
    python -m venv venv
+   source venv/bin/activate  # No Windows: .\venv\Scripts\activate
+
+3. **Instalação das Dependências:**
+    ````bash
+   pip install -r requirements.txt
+   
+4. **Configuração do Banco de Dados:**
+    ````bash
+   python manage.py makemigrations
+   python manage.py migrate
+5. **Execução do Servidor de Desenvolvimento:**
+    ````bash
+   python manage.py runserver
+
