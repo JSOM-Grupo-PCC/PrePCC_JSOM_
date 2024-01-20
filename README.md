@@ -14,7 +14,8 @@
 Legendas:  
 :green_circle: Concluído  
 :yellow_circle: Feito em parte <br>
-:large_blue_circle: Em Andamento 
+:large_blue_circle: Em Andamento <br>
+:white_circle: Nada Feito 
 
 ## Diagrama Caso de Uso
 ![Caso de Uso](https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/50206489-0ab5-4f2a-b6a5-8d9334d95e3d)
