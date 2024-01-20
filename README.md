@@ -13,8 +13,8 @@
 
 Legendas:  
 :green_circle: Concluído  
-:yellow_circle: Feito em parte 
-:large_blue_circle: Em andamento 
+:yellow_circle: Feito em parte <br>
+:large_blue_circle: EmAandamento 
 
 ## Configuração do Ambiente Virtual (venv)
 
