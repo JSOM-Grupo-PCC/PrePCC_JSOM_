@@ -21,7 +21,7 @@ def index(request):
 
 @login_required(login_url='contact:index')
 def detalhes_treino(request, treino_id):
-    treino = get_object_or_404(Treino, pk=treino_id, owner=request.user)
+    treino = get_object_or_404(Treino, id=treino_id)
     site_title = f'{treino.nome}_{treino.categoria}'
     context = {
         'site_title': site_title,
