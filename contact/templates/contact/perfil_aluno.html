@@ -2,17 +2,17 @@
 {% block corpo %}
 <div class="w-100 table-responsive">
     <h1 class="m-3 fs-1 form-text text-center fw-bold">
-        Perfil do aluno <span class="text-jsom-escuro text-decoration-underline">{{ user_profile.user.username }}</span>
+        Perfil do aluno <span class="text-jsom-escuro text-decoration-underline">{{ aluno.user.username }}</span>
     </h1>
     <div class="card border-jsom-claro shadow-big mx-4 mb-5">
         <div class="card-body">
             <h5 class="card-title">Informações do Aluno</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Usuário:</strong> {{ user_profile.user.username }}</li>
-                <li class="list-group-item"><strong>Nome:</strong> {{ user_profile.user.first_name }}</li>
-                <li class="list-group-item"><strong>Sobrenome:</strong> {{ user_profile.user.last_name }}</li>
-                <li class="list-group-item"><strong>Peso:</strong> {{ user_profile.peso }}</li>
-                <li class="list-group-item"><strong>Altura:</strong> {{ user_profile.altura }}</li>
+                <li class="list-group-item"><strong>Usuário:</strong> {{ aluno.user.username }}</li>
+                <li class="list-group-item"><strong>Nome:</strong> {{ aluno.user.first_name }}</li>
+                <li class="list-group-item"><strong>Sobrenome:</strong> {{ aluno.user.last_name }}</li>
+                <li class="list-group-item"><strong>Peso:</strong> {{ aluno.peso }}</li>
+                <li class="list-group-item"><strong>Altura:</strong> {{ aluno.altura }}</li>
                 <li class="list-group-item"><strong>Idade:</strong> {{ idade }} Anos</li>
             </ul>
         </div>
@@ -63,7 +63,7 @@
                       {% endif %}
                     {% endfor %}              
                     <!--botão de Adicinar novo treino-->
-                    <a href="{% url "contact:adicionar_treino_admin" user.id %}">
+                    <a href="{% url "contact:adicionar_treino_admin" aluno.user.id %}">
                       <button type="button" class="btn mt-1 p-2 btn-primary icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);">
                           <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
@@ -87,9 +87,9 @@
           <use xlink:href="#exclamation-triangle-fill"/>
         </svg>
         <p class="fs-5 m-0"><strong>Atenção!</strong> Não existe nenhum treino aqui ainda, mais vc pode 
-          {% comment %} <a href="{% url 'contact:adicionar_treino' userProfile.user.id %}" class="link-jsom-subtle">
+          <a href="{% url 'contact:adicionar_treino' aluno.user.id %}" class="link-jsom-subtle">
             Adicionar Treino
-          </a> {% endcomment %}
+          </a>
         </p>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
