@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/131227b4-7103-497e-b8a6-8aa40d70a8d9" alt="Logo JSOM">
+    <img src="https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/f215246a-a4a2-44cc-826e-ceda69ef84a5" alt="Logo JSOM">
 </div>
 <hr>
 <h1 align="center">Projeto de Conclusão de Curso (PCC) - JSOM<h1>
