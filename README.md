@@ -4,7 +4,7 @@
 
 | Requisito                                                            | Notas de Andamento                                                         | Status           |
 | --------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------- |
-| **1. O sistema dever permitir que o administrador cadastre os novos alunos da academia**             | O sistema permite o cadastro de novos alunos, mas não é o admin que cadastra novos alunos | :yellow_circle: Feito em parte |
+| **1. O sistema dever permitir que o administrador cadastre os novos alunos da academia**             | O sistema permite o cadastro de novos alunos, mas não é o admin que cadastra novos alunos | :large_blue_circle: Em Andamento |
 | **2. O sistema deve permitir o login de alunos e do administrador**                                  | O sistema já permite o login de ambos os tipos de usuários | :green_circle: Concluído |
 | **3. O sistema deve conceder ao aluno a possibilidade de visualizar e gerenciar o perfil**           | O sistema atualmente permite que somente o admin possa visualizar e gerenciar seu perfil | :yellow_circle: Feito em parte |
 | **4. O sistema deve permitir que o administrador gerencie os treinos de cada aluno**                 | O sistema atualmente só está permitindo o admin adicionar, editar, excluir e visualizar os detalhes dos treinos dos alunos | :green_circle: Concluído |
