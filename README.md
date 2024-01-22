@@ -1,7 +1,12 @@
-# Projeto de Conclusão de Curso (PCC) - JSOM
+<div align="center">
+    <img src="https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/131227b4-7103-497e-b8a6-8aa40d70a8d9" alt="Logo JSOM">
+</div>
+<hr>
+<h1 align="center">Projeto de Conclusão de Curso (PCC) - JSOM<h1>
+<h3 align="center">Sistema de Gerenciamento de Academia</h3>
+<br> 
 
 ## Requisitos e Andamento
-
 | Requisito                                                            | Notas de Andamento                                                         | Status           |
 | --------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------- |
 | **1. O sistema dever permitir que o administrador cadastre os novos alunos da academia**             | O sistema permite o cadastro de novos alunos, mas não é o admin que cadastra novos alunos | :large_blue_circle: Em Andamento |
