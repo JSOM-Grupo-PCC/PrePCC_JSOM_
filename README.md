@@ -1,4 +1,4 @@
-# Projeto de Conclusão de Curso (PCC) - Django
+# Projeto de Conclusão de Curso (PCC) - JSOM
 
 ## Requisitos e Andamento
 

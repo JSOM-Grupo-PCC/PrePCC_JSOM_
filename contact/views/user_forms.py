@@ -23,7 +23,6 @@ def register(request):
             user_profile.data_nascimento = form.cleaned_data['data_nascimento']
             user_profile.save()
 
-            messages.success(request, 'Usuário registrado com sucesso')
             return redirect('contact:login')
 
     return render(
@@ -57,7 +56,6 @@ def user_update(request):
             user_profile.data_nascimento = form.cleaned_data['data_nascimento']
             user_profile.save()
 
-            messages.success(request, 'Perfil atualizado com sucesso')
             return redirect('contact:login')
 
     return render(
@@ -87,7 +85,6 @@ def login_view(request):
             auth.login(request, user)
             messages.success(request, f'Usuario {user.username} logado com sucesso!')
             return redirect('contact:index')
-        messages.error(request, 'Login inválido')
     
     return render(
         request,

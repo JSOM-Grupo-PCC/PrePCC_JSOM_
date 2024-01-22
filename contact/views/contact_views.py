@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from contact.models import Treino
 
 @login_required(login_url='contact:login')
+@user_passes_test(lambda u: not u.is_staff, login_url='contact:lista_alunos')
 def index(request):
     user = request.user
     categorias = Treino.CATEGORIA_CHOICES
