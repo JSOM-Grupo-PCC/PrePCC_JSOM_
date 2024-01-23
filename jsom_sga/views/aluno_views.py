@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from contact.models import Treino, UserProfile
+from jsom_sga.models import Treino, UserProfile
 from django.utils import timezone
 
-@login_required(login_url='contact:login')
-@user_passes_test(lambda u: not u.is_staff, login_url='contact:lista_alunos')
+@login_required(login_url='JSOM_SGA:login')
+@user_passes_test(lambda u: not u.is_staff, login_url='JSOM_SGA:lista_alunos')
 def index(request):
     user = request.user
     categorias = Treino.CATEGORIA_CHOICES
@@ -17,11 +17,11 @@ def index(request):
     }
     return render(
         request,
-        'contact/index.html',
+        'JSOM_SGA/index.html',
         context
     )
 
-@login_required(login_url='contact:index')
+@login_required(login_url='JSOM_SGA:index')
 def detalhes_treino(request, treino_id):
     treino = get_object_or_404(Treino, id=treino_id)
     site_title = f'{treino.nome}_{treino.categoria}'
@@ -29,9 +29,9 @@ def detalhes_treino(request, treino_id):
         'site_title': site_title,
         'treino': treino
     }
-    return render(request, 'contact/detalhes_treino.html', context)
+    return render(request, 'JSOM_SGA/detalhes_treino.html', context)
 
-@login_required(login_url='contact:index')
+@login_required(login_url='JSOM_SGA:index')
 def perfil_aluno(request, user_id):
     aluno = get_object_or_404(UserProfile, user__id=user_id)
     site_title = f"Perfil do aluno {aluno.user.username}"
@@ -49,5 +49,5 @@ def perfil_aluno(request, user_id):
         'site_title': site_title,
     }
 
-    return render(request, 'contact/perfil_aluno.html', context)
+    return render(request, 'JSOM_SGA/perfil_aluno.html', context)
 

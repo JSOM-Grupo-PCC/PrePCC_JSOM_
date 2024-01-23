@@ -1,5 +1,5 @@
 from django.contrib import admin
-from contact import models
+from jsom_sga import models
 
 @admin.register(models.Treino)
 class TreinoAdmin(admin.ModelAdmin):

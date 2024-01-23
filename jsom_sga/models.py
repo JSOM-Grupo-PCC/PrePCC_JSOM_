@@ -11,7 +11,7 @@ class UserProfile(models.Model):
         return self.user.username
 
 class Treino(models.Model):
-    nome = models.CharField(max_length=100)
+    nome = models.CharField(max_length=90)
 
     CATEGORIA_CHOICES = [
         ('Treino(A)', 'Treino-A'),
@@ -22,8 +22,8 @@ class Treino(models.Model):
     ]
 
     categoria = models.CharField(max_length=9, choices=CATEGORIA_CHOICES)
-    descricao = models.TextField(blank=True)
     imagem = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
+    descricao = models.TextField(blank=True)
     owner = models.ForeignKey(
         User,
         on_delete=models.SET_NULL,
@@ -32,3 +32,4 @@ class Treino(models.Model):
 
     def __str__(self) -> str:
         return f'{self.nome} {self.descricao}'
+    

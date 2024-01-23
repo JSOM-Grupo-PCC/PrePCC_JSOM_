@@ -1,7 +1,7 @@
 from django.urls import path
-from contact import views
+from jsom_sga import views
 
-app_name = 'contact'
+app_name = 'JSOM_SGA'
 
 urlpatterns = [
     

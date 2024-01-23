@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages, auth
-from contact.forms import RegisterForm, RegisterUpdateForm
+from jsom_sga.forms import RegisterForm, RegisterUpdateForm
 from django.contrib.auth.decorators import login_required
-from contact.models import UserProfile
+from jsom_sga.models import UserProfile
 
 def register(request):
     form = RegisterForm()
@@ -23,18 +23,18 @@ def register(request):
             user_profile.data_nascimento = form.cleaned_data['data_nascimento']
             user_profile.save()
 
-            return redirect('contact:login')
+            return redirect('JSOM_SGA:login')
 
     return render(
         request,
-        'contact/register.html',
+        'JSOM_SGA/register.html',
         {
             'form': form,
             'site_title': "Register User",
         }
     )
 
-@login_required(login_url='contact:login')
+@login_required(login_url='JSOM_SGA:login')
 def user_update(request):
     user = request.user
     user_profile = user.userprofile  # Acesso ao UserProfile associado
@@ -56,11 +56,11 @@ def user_update(request):
             user_profile.data_nascimento = form.cleaned_data['data_nascimento']
             user_profile.save()
 
-            return redirect('contact:login')
+            return redirect('JSOM_SGA:login')
 
     return render(
         request,
-        'contact/user_update.html',
+        'JSOM_SGA/user_update.html',
         {
             'form': form,
             'site_title': "Update User"
@@ -84,18 +84,18 @@ def login_view(request):
             user = form.get_user()
             auth.login(request, user)
             messages.success(request, f'Usuario {user.username} logado com sucesso!')
-            return redirect('contact:index')
+            return redirect('JSOM_SGA:index')
     
     return render(
         request,
-        'contact/login.html',
+        'JSOM_SGA/login.html',
         {
             'form': form,
             'site_title': "Login User",
         }
     )
 
-@login_required(login_url='contact:login')
+@login_required(login_url='JSOM_SGA:login')
 def logout_view(request):
     auth.logout(request)
-    return redirect('contact:login')
+    return redirect('JSOM_SGA:login')
