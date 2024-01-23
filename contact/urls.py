@@ -10,6 +10,7 @@ urlpatterns = [
     path('user/login/', views.login_view, name='login'),
     path('user/logout/', views.logout_view, name='logout'),
     path('user/update/', views.user_update, name='user_update'),
+    path('aluno/perfil/<int:user_id>/', views.perfil_aluno, name='perfil_aluno'),
 
     # treino (CRUD)
     path('detalhes/<int:treino_id>/', views.detalhes_treino, name='detalhes_treino'),
@@ -20,7 +21,7 @@ urlpatterns = [
     
     # admin
     path('admin/lista_alunos/', views.lista_alunos, name='lista_alunos'),
-    path('admin/perfil_aluno/<int:user_id>/', views.perfil_aluno, name='perfil_aluno'),
+    path('admin/perfil_aluno_admin/<int:user_id>/', views.perfil_aluno_admin, name='perfil_aluno_admin'),
 
     # index
     path('', views.index, name='index'),
