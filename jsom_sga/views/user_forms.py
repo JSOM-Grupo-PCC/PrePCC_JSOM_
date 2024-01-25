@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages, auth
 from jsom_sga.forms import RegisterForm, RegisterUpdateForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from jsom_sga.models import UserProfile
 
+@user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:login')
 def register(request):
     form = RegisterForm()
 
@@ -16,12 +17,9 @@ def register(request):
             user.set_password(form.cleaned_data['password1'])
             user.save()
 
-            # Agora que o usuário está salvo, crie o UserProfile associado
-            user_profile = UserProfile(user=user)
-            user_profile.peso = form.cleaned_data['peso']
-            user_profile.altura = form.cleaned_data['altura']
-            user_profile.data_nascimento = form.cleaned_data['data_nascimento']
-            user_profile.save()
+            # Agora que o usuário está salvo, é criado um UserProfile associado com valores padrão
+            user_profile = UserProfile(user=user, peso=None, altura=None, data_nascimento=None)
+            user_profile.save()         
 
             return redirect('JSOM_SGA:login')
 
@@ -35,6 +33,7 @@ def register(request):
     )
 
 @login_required(login_url='JSOM_SGA:login')
+@user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:login')
 def user_update(request):
     user = request.user
     user_profile = user.userprofile  # Acesso ao UserProfile associado
@@ -66,7 +65,6 @@ def user_update(request):
             'site_title': "Update User"
         }
     )
-
 
 class BootstrapAuthenticationForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):

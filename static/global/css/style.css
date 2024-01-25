@@ -29,6 +29,11 @@
     color: #212529;
 }
 
+.bg-jsom-claro{
+    background-color: #420e01 !important;
+    color: #ffffff !important;
+}
+
 .btn-outline-jsom{
     border-color: #f45038;
 }

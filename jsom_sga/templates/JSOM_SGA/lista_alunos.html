@@ -1,33 +1,31 @@
 {% extends "global/base.html" %}
 {% block corpo %}
-<div class="w-100 mx-3 mt-1 table-responsive">
-    <h1 class="mt-3 mb-3 fs-1 form-text text-center"> {{ site_title }} </h1>
-    <table class=" table table-hover">
-        <thead class="table-light">
-            <tr>
-                <th scope="col">Usuário</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Sobrenome</th>
-            </tr>
-        </thead>
-        <tbody class="table-group-divider">
+<div class="container m-4">
+    <h1 class="text-center mb-2">{{ site_title }}</h1>    `
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-3">
+        <a class="nav-link fs-5 active" aria-current="page" href=" {% url "JSOM_SGA:register" %} ">
+            <button class="btn text-white fw-semibold icon-link icon-link-hover shadow-big" style="background-color: #7A0701; --bs-icon-link-transform: translate3d(0, -.125rem, 0);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                </svg>
+                Cadastrar novo usuário
+            </button>
+        </a>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for userProfile in users %}
-            <tr>
-                <td scope="row">
-                    <a class="link-jsom fw-bold link-offset-1 link-underline-opacity-0 link-underline-opacity-100-hover" 
-                    href="{% url 'JSOM_SGA:perfil_aluno_admin' userProfile.user.id %}">
-                    {{ userProfile.user.username }}
-                    </a>
-                </td>
-                <td>
-                    {{ userProfile.user.first_name }}
-                </td>
-                <td>
-                    {{ userProfile.user.last_name }}
-                </td>
-            </tr>
+        <div class="col ">
+            <div class="card h-100 shadow-big ">
+                <div class="card-body bg-jsom-claro rounded-2" style="background-color: #420e01 !important; !important;
+                color: #ffffff !important;" >
+                    <h5 class="card-title">{{ userProfile.user.username }}</h5>
+                    <h6 class="card-subtitle mb-2">{{ userProfile.user.first_name }} {{ userProfile.user.last_name }}</h6>
+                    <a href="{% url 'JSOM_SGA:perfil_aluno_admin' userProfile.user.id %}" class="card-link link-jsom">Ver perfil</a>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
+
 </div>
 {% endblock corpo %}

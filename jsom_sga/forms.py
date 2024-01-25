@@ -5,6 +5,97 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Treino
 
+
+class RegisterForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = [
+            'first_name', 'last_name',  
+            'username', 'password1', 'password2',
+            # 'peso', 'altura', 'data_nascimento',
+        ]
+
+
+    first_name = forms.CharField(
+        required=True,
+        min_length=3,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+            }
+        )
+    )
+    last_name = forms.CharField( 
+        required=True,
+        min_length=3,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+            }
+        )
+    )    
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+            }
+        )
+    )
+    password1 = forms.CharField(
+        label="Senha",  
+        widget=forms.PasswordInput(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+            }
+        )
+    )
+    password2 = forms.CharField(
+        label="Confirme a Senha",
+        widget=forms.PasswordInput(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-4'
+            }
+        )
+    )
+
+    # peso = forms.FloatField(
+    #     required=True,
+    #     widget=forms.NumberInput(
+    #         attrs={
+    #             'class': 'form-control border-1 border-jsom shadow-big mb-2'
+    #         }
+    #     )
+    # )
+    # altura = forms.FloatField(
+    #     required=True,
+    #     widget=forms.NumberInput(
+    #         attrs={
+    #             'class': 'form-control border-1 border-jsom shadow-big mb-2'
+    #         }
+    #     )
+    # )
+    # data_nascimento = forms.DateField(
+    #     required=True,
+    #     widget=forms.DateInput(
+    #         attrs={
+    #             'class': 'form-control border-1 border-jsom shadow-big mb-2',
+    #             'type': 'date', 
+    #         }
+    #     )
+    # )
+
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+
+        if User.objects.filter(email=email).exists():
+            self.add_error(
+                'email',
+                ValidationError('Já existe este e-mail', code='invalid')
+            )
+
+        return email
+    
 class TreinoForm(forms.ModelForm):
     class Meta:
         model = Treino
@@ -53,100 +144,6 @@ class TreinoForm(forms.ModelForm):
             }
         ),
     )
-
-class RegisterForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = [
-            'first_name', 'last_name', 'peso', 'altura', 'data_nascimento', 
-            'email', 'username', 'password1', 'password2',
-        ]
-
-
-    first_name = forms.CharField(
-        required=True,
-        min_length=3,
-        widget=forms.TextInput(
-            attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2'
-            }
-        )
-    )
-    last_name = forms.CharField( 
-        required=True,
-        min_length=3,
-        widget=forms.TextInput(
-            attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2'
-            }
-        )
-    )
-    peso = forms.FloatField(
-        required=True,
-        widget=forms.NumberInput(
-            attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2'
-            }
-        )
-    )
-    altura = forms.FloatField(
-        required=True,
-        widget=forms.NumberInput(
-            attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2'
-            }
-        )
-    )
-    data_nascimento = forms.DateField(
-        required=True,
-        widget=forms.DateInput(
-            attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2',
-                'type': 'date', 
-            }
-        )
-    )
-    email = forms.CharField(
-        widget=forms.EmailInput(
-            attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2'
-            }
-        )
-    )
-    username = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2'
-            }
-        )
-    )
-    password1 = forms.CharField(
-        label="Senha",  
-        widget=forms.PasswordInput(
-            attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2'
-            }
-        )
-    )
-    password2 = forms.CharField(
-        label="Confirme a Senha",
-        widget=forms.PasswordInput(
-            attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-4'
-            }
-        )
-    )
-    
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-
-        if User.objects.filter(email=email).exists():
-            self.add_error(
-                'email',
-                ValidationError('Já existe este e-mail', code='invalid')
-            )
-
-        return email
 
 class RegisterUpdateForm(forms.ModelForm):
     first_name = forms.CharField(
