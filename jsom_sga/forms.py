@@ -135,10 +135,10 @@ class RegisterUpdateForm(forms.ModelForm):
         }
     )
     last_name = forms.CharField(
+        required=True,
+        help_text='*',
         min_length=2,
         max_length=30,
-        required=True,
-        help_text='*', 
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control border-1 border-jsom shadow-big mb-2'
@@ -146,8 +146,6 @@ class RegisterUpdateForm(forms.ModelForm):
         )
     )
     peso = forms.FloatField(
-        required=True,
-        help_text='*',
         widget=forms.NumberInput(
             attrs={
                 'class': 'form-control border-1 border-jsom shadow-big mb-2'
@@ -155,8 +153,6 @@ class RegisterUpdateForm(forms.ModelForm):
         )
     )
     altura = forms.FloatField(
-        required=True,
-        help_text='*',
         widget=forms.NumberInput(
             attrs={
                 'class': 'form-control border-1 border-jsom shadow-big mb-2'
@@ -164,8 +160,6 @@ class RegisterUpdateForm(forms.ModelForm):
         )
     )
     data_nascimento = forms.DateField(
-        required=True,
-        help_text='*',
         widget=forms.NumberInput(
             attrs={
                 'class': 'form-control border-1 border-jsom shadow-big mb-2',
@@ -185,8 +179,7 @@ class RegisterUpdateForm(forms.ModelForm):
         )
     )
     email = forms.CharField(
-        required=True,
-        help_text='*', 
+        required=False,
         widget=forms.EmailInput(
             attrs={
                 'class': 'form-control border-1 border-jsom shadow-big mb-2'

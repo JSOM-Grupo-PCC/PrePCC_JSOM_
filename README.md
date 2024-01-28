@@ -14,7 +14,7 @@
 | **3. O sistema deve conceder ao aluno a possibilidade de visualizar e gerenciar o perfil**           | O sistema já permite o aluno vizualizar e atualizar dados como peso, altura e data de nascimento | :green_circle: Concluído  |
 | **4. O sistema deve permitir que o administrador gerencie os treinos de cada aluno**                 | O sistema atualmente só está permitindo o admin adicionar, editar, excluir e visualizar os detalhes dos treinos dos alunos | :green_circle: Concluído |
 | **5. O sistema deve permitir que o aluno acesse os seus treinos diários**                            | O sistema já permite que o aluno acesse seus treinos por categoria | :green_circle: Concluído |
-| **6. O sistema deve possibilitar o administrador personalizar as informações do perfil dos alunos**  | O sistema atualmente só permite que o admin visualize os dados do perfil de cada aluno | :large_blue_circle: Em Andamento |
+| **6. O sistema deve possibilitar o administrador personalizar as informações do perfil dos alunos**  | O sistema atualmente só permite que o admin atualizar todas as informações do Aluno | :green_circle: Concluído |
 
 Legendas:  
 :green_circle: Concluído  
