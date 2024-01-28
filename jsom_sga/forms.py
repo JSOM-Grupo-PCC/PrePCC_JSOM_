@@ -58,32 +58,6 @@ class RegisterForm(UserCreationForm):
         )
     )
 
-    # peso = forms.FloatField(
-    #     required=True,
-    #     widget=forms.NumberInput(
-    #         attrs={
-    #             'class': 'form-control border-1 border-jsom shadow-big mb-2'
-    #         }
-    #     )
-    # )
-    # altura = forms.FloatField(
-    #     required=True,
-    #     widget=forms.NumberInput(
-    #         attrs={
-    #             'class': 'form-control border-1 border-jsom shadow-big mb-2'
-    #         }
-    #     )
-    # )
-    # data_nascimento = forms.DateField(
-    #     required=True,
-    #     widget=forms.DateInput(
-    #         attrs={
-    #             'class': 'form-control border-1 border-jsom shadow-big mb-2',
-    #             'type': 'date', 
-    #         }
-    #     )
-    # )
-
     
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -303,3 +277,38 @@ class RegisterUpdateForm(forms.ModelForm):
                 )
 
         return password1
+    
+class AlunoUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = (
+            'peso', 'altura', 'data_nascimento',
+        )    
+        
+    peso = forms.FloatField(
+        required=True,
+        widget=forms.NumberInput(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+            }
+        )
+    )
+    altura = forms.FloatField(
+        required=True,
+        widget=forms.NumberInput(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+            }
+        )
+    )
+    data_nascimento = forms.DateField(
+        required=True,
+        widget=forms.NumberInput(
+            attrs={
+                'class': 'form-control border-1 border-jsom shadow-big mb-4',
+                'type': 'date',  # Adicionado para suporte a data
+            }
+        )
+    )
+
+

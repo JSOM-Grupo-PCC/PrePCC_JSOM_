@@ -10,6 +10,9 @@ urlpatterns = [
     path('user/login/', views.login_view, name='login'),
     path('user/logout/', views.logout_view, name='logout'),
     path('user/update/', views.user_update, name='user_update'),
+
+    # Aluno
+    path('aluno/update/', views.aluno_update, name='aluno_update'),
     path('aluno/perfil/<int:user_id>/', views.perfil_aluno, name='perfil_aluno'),
 
     # treino (CRUD)
