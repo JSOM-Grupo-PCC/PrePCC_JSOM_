@@ -1,10 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages, auth
 from jsom_sga.forms import RegisterForm, RegisterUpdateForm, AlunoUpdateForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from jsom_sga.models import UserProfile
-from django.contrib.auth.models import User
 
 @user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:login')
 def register(request):
@@ -89,39 +88,6 @@ def aluno_update(request):
             user_profile.save()
 
             return redirect('JSOM_SGA:perfil_aluno', user_id=user.id)
-
-    return render(
-        request,
-        'JSOM_SGA/aluno_update.html',
-        {
-            'form': form,
-            'site_title': "Atualizando dados do Aluno"
-        }
-    )
-
-@user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:login')
-def admin_aluno_update(request, user_id):
-    aluno = get_object_or_404(User, id=user_id)  # Obtendo diretamente o usuário
-    user_profile = aluno.userprofile  # Acesso ao UserProfile associado
-
-    form = RegisterUpdateForm(instance=aluno, initial={
-        'peso': user_profile.peso,
-        'altura': user_profile.altura,
-        'data_nascimento': user_profile.data_nascimento,
-    })
-
-    if request.method == 'POST':
-        form = RegisterUpdateForm(data=request.POST, instance=aluno)
-
-        if form.is_valid():
-            form.save()
-            # Atualize também o UserProfile
-            user_profile.peso = form.cleaned_data['peso']
-            user_profile.altura = form.cleaned_data['altura']
-            user_profile.data_nascimento = form.cleaned_data['data_nascimento']
-            user_profile.save()
-
-            return redirect('JSOM_SGA:perfil_aluno', user_id=aluno.id)
 
     return render(
         request,

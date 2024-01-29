@@ -44,7 +44,7 @@
       <h2 class="mt-4 mb-3 fs-3 form-text text-center">Lista de Treinos do Aluno</h2>
       {% if treinos %}
         <!-- Adicione o código do Accordion -->
-        <div class="accordion mx-3" id="treinosAccordion" data-bs-ride="false">
+        <div class="accordion mx-4" id="treinosAccordion" data-bs-ride="false">
         {% for categoria in categorias %}
             <div class="accordion-item shadow-big border-1 border-jsom-accordion mb-3 rounded-2">
                 <h2 class="accordion-header " id="heading{{ forloop.counter }}">
@@ -64,7 +64,7 @@
                               </label>
                               <div class="">
                                   <!--botão de deletar treino-->
-                                  <a style="text-decoration: none;" href="{% url 'JSOM_SGA:excluir_treino_admin' treino.id %}">
+                                  <a style="text-decoration: none;" href="{% url 'JSOM_SGA:excluir_treino_admin' user_id=aluno.user.id treino_id=treino.id %}">
                                     <button type="button" class="btn icon-link icon-link-hover p-2 btn-danger" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
@@ -73,7 +73,7 @@
                                   </a>
 
                                   <!--botão de editar treino-->
-                                  <a style="text-decoration: none;" href="{% url 'JSOM_SGA:atualizar_treino_admin' treino.id %}">
+                                  <a style="text-decoration: none;" href="{% url 'JSOM_SGA:atualizar_treino_admin' user_id=aluno.user.id treino_id=treino.id %}">
                                     <button type="button" class="btn p-2 btn-warning icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>

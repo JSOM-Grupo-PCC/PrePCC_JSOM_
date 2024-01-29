@@ -4,6 +4,40 @@ from jsom_sga.models import UserProfile, Treino
 from django.utils import timezone
 from django.contrib.auth.models import User
 from jsom_sga.forms import TreinoForm
+from jsom_sga.forms import RegisterUpdateForm
+
+@user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:login')
+def admin_aluno_update(request, user_id):
+    aluno = get_object_or_404(User, id=user_id)  # Obtendo diretamente o usuário
+    user_profile = aluno.userprofile  # Acesso ao UserProfile associado
+
+    form = RegisterUpdateForm(instance=aluno, initial={
+        'peso': user_profile.peso,
+        'altura': user_profile.altura,
+        'data_nascimento': user_profile.data_nascimento,
+    })
+
+    if request.method == 'POST':
+        form = RegisterUpdateForm(data=request.POST, instance=aluno)
+
+        if form.is_valid():
+            form.save()
+            # Atualize também o UserProfile
+            user_profile.peso = form.cleaned_data['peso']
+            user_profile.altura = form.cleaned_data['altura']
+            user_profile.data_nascimento = form.cleaned_data['data_nascimento']
+            user_profile.save()
+
+            return redirect('JSOM_SGA:perfil_aluno_admin', user_id=user_id)
+
+    return render(
+        request,
+        'JSOM_SGA/aluno_update.html',
+        {
+            'form': form,
+            'site_title': "Atualizando dados do Aluno"
+        }
+    )
 
 @user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:index')
 def adicionar_treino_admin(request, user_id):
@@ -14,7 +48,7 @@ def adicionar_treino_admin(request, user_id):
             treino = form.save(commit=False)
             treino.owner = aluno  # Associando o treino ao usuário do perfil do aluno
             treino.save()
-            return redirect('JSOM_SGA:index')
+            return redirect('JSOM_SGA:perfil_aluno_admin', user_id=user_id)
     else:
         form = TreinoForm()
     
@@ -26,14 +60,14 @@ def adicionar_treino_admin(request, user_id):
     return render(request, 'JSOM_SGA/adicionar_treino.html', context)
 
 @user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:index')
-def atualizar_treino_admin(request, treino_id):
+def atualizar_treino_admin(request, treino_id, user_id):
     treino = get_object_or_404(Treino, pk=treino_id)
     
     if request.method == 'POST':
         form = TreinoForm(request.POST, request.FILES, instance=treino)
         if form.is_valid():
             form.save()
-            return redirect('JSOM_SGA:index')
+            return redirect('JSOM_SGA:perfil_aluno_admin', user_id=user_id)
     else:   
         form = TreinoForm(instance=treino)
     
@@ -46,10 +80,10 @@ def atualizar_treino_admin(request, treino_id):
     return render(request, 'JSOM_SGA/atualizar_treino.html', context)
 
 @user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:index')
-def excluir_treino_admin(request, treino_id):
+def excluir_treino_admin(request, treino_id, user_id):
     treino = get_object_or_404(Treino, pk=treino_id)
     treino.delete()
-    return redirect('JSOM_SGA:index')
+    return redirect('JSOM_SGA:perfil_aluno_admin', user_id=user_id)
 
 @user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:index')
 def lista_alunos(request):

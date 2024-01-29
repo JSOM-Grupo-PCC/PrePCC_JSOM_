@@ -1,3 +1,14 @@
+.min-vh-85{
+  min-height: 85vh;
+}
+.h-vh-10{
+  height: 10vh;
+}
+
+.shadow-big {
+  box-shadow: 0px 0px 45px #b3b3b3 !important;
+}
+
 .w-5{
     width: 15vh !important;
 }
