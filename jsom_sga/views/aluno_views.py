@@ -10,10 +10,13 @@ def index(request):
     categorias = Treino.CATEGORIA_CHOICES
     treinos = Treino.objects.filter(owner=request.user)
     site_title = f'Treinos de {user}'
+    lista_treinos = "active bg-gradient-primary"
+    
     context = {
         'site_title': site_title,
         'treinos': treinos,
         'categorias': categorias,
+        'lista_treinos': lista_treinos,
     }
     return render(
         request,
@@ -35,6 +38,7 @@ def detalhes_treino(request, treino_id):
 def perfil_aluno(request, user_id):
     aluno = get_object_or_404(UserProfile, user__id=user_id)
     site_title = f"Perfil do aluno {aluno.user.username}"
+    perfil_aluno= "active bg-gradient-primary"
 
     # Calcular idade a partir da data de nascimento
     if aluno.data_nascimento:
@@ -47,6 +51,7 @@ def perfil_aluno(request, user_id):
         'aluno': aluno,
         'idade': idade,
         'site_title': site_title,
+        'perfil_aluno': perfil_aluno,
     }
 
     return render(request, 'JSOM_SGA/perfil_aluno.html', context)

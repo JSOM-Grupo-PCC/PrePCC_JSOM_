@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/f215246a-a4a2-44cc-826e-ceda69ef84a5" alt="Logo JSOM" width="50%">
+    <img src="https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/e20e4b6b-3f7c-476d-8ad1-be19fc8bff0f" alt="Logo JSOM" width="50%">
 </div>
 <hr>
 <h1 align="center">Projeto de Conclusão de Curso (PCC) - JSOM<h1>
@@ -21,7 +21,7 @@
 | **10. O sistema deve integrar balança inteligente de bioimpedância para o preenchimento automático de dados corporais do aluno**                                               |  | :white_circle: Nada Feito  |
 | **11. O sistema deve notificar mensalmente ao aluno a possibilidade de atualização das informações**                                                                           |  | :white_circle: Nada Feito  |
 | **12. O sistema deve apresentar de forma clara e acessível às estatísticas detalhadas sobre as métricas corporais e o desempenho semanal de cada aluno na página dashboard**   |  | :white_circle: Nada Feito  |
-| **13. O sistema deve possibilitar a transição entre os modos claro e escuro**                                                                                                  |  | :white_circle: Nada Feito  |
+| **13. O sistema deve possibilitar a transição entre os modos claro e escuro**                                                                                                  |  | :green_circle: Concluído  |
 
 Legendas:  
 :green_circle: Concluído  
