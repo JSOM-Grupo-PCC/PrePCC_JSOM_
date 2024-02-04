@@ -8,7 +8,7 @@ from jsom_sga.models import UserProfile
 @user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:login')
 def register(request):
     form = RegisterForm()
-    register = "active bg-gradient-primary"
+    register = "active bg-gradient-primary_jsom"
 
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -38,7 +38,7 @@ def register(request):
 def user_update(request):
     user = request.user
     user_profile = user.userprofile  # Acesso ao UserProfile associado
-    user_update = "active bg-gradient-primary"
+    user_update = "active bg-gradient-primary_jsom"
 
     form = RegisterUpdateForm(instance=user, initial={
         'peso': user_profile.peso,

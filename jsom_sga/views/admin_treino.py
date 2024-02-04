@@ -88,7 +88,7 @@ def excluir_treino_admin(request, treino_id, user_id):
 @user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:index')
 def lista_alunos(request):
     site_title = "Lista de Alunos"
-    lista_alunos = "active bg-gradient-primary"
+    lista_alunos = "active bg-gradient-primary_jsom"
     users = UserProfile.objects.select_related('user').prefetch_related('user__treino_set')
 
     context = {

@@ -181,6 +181,54 @@
 }
 /* Cofiguração do template do bootstrap*/
 
+.bg-gradient-primary_jsom {
+  background-image: linear-gradient(195deg, #ec442a 0%, #c53019 100%);
+}
+
+.btn-primary_jsom,
+.btn.bg-gradient-primary_jsom {
+  color: #fff;
+}
+
+.btn-primary_jsom:hover,
+.btn.bg-gradient-primary_jsom:hover {
+  color: #fff;
+}
+
+.btn-primary_jsom,
+.btn.bg-gradient-primary_jsom {
+  box-shadow: 0 3px 3px 0 rgba(233, 61, 30, 0.15), 0 3px 1px -2px rgba(233, 88, 30, 0.2), 0 1px 5px 0 rgba(233, 88, 30, 0.15);
+}
+
+.btn-primary_jsom:hover,
+.btn.bg-gradient-primary_jsom:hover {
+  border-color: #ec442a;
+  border-color: #ec442a;
+  box-shadow: 0 14px 26px -12px rgba(233, 77, 30, 0.4), 0 4px 23px 0 rgba(233, 88, 30, 0.15), 0 8px 10px -5px rgba(233, 71, 30, 0.2);
+}
+
+.btn-primary_jsom .btn.bg-outline-primary_jsom,
+.btn.bg-gradient-primary_jsom .btn.bg-outline-primary_jsom {
+  border: 1px solid #ec442a;
+}
+
+.btn-primary_jsom:not(:disabled):not(.disabled).active,
+.btn-primary_jsom:not(:disabled):not(.disabled):active,
+.show>.btn-primary_jsom.dropdown-toggle,
+.btn.bg-gradient-primary_jsom:not(:disabled):not(.disabled).active,
+.btn.bg-gradient-primary_jsom:not(:disabled):not(.disabled):active,
+.show>.btn.bg-gradient-primary_jsom.dropdown-toggle {
+  color: color-yiq(#ec442a);
+  background-color: #ec442a;
+}
+
+.btn-primary_jsom.focus,
+.btn-primary_jsom:focus,
+.btn.bg-gradient-primary_jsom.focus,
+.btn.bg-gradient-primary_jsom:focus {
+  color: #fff;
+}
+
 .navbar-vertical .navbar-brand>img, .navbar-vertical .navbar-brand-img {
   max-width: 7.5rem !important;
   max-height: 3rem !important ;
@@ -203,6 +251,5 @@
 }
 
 .card-hover:hover {
-  transform: scale(1.01); /* Ajuste o valor conforme necessário para o tamanho desejado */
   box-shadow: 0 14px 26px -12px rgba(52, 71, 103, 0.4), 0 4px 23px 0 rgba(52, 71, 103, 0.15), 0 8px 10px -5px rgba(52, 71, 103, 0.2);
 }
