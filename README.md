@@ -21,7 +21,7 @@
 | **10. O sistema deve integrar balança inteligente de bioimpedância para o preenchimento automático de dados corporais do aluno**                                               |  | :white_circle: Nada Feito  |
 | **11. O sistema deve notificar mensalmente ao aluno a possibilidade de atualização das informações**                                                                           |  | :white_circle: Nada Feito  |
 | **12. O sistema deve apresentar de forma clara e acessível às estatísticas detalhadas sobre as métricas corporais e o desempenho semanal de cada aluno na página dashboard**   |  | :white_circle: Nada Feito  |
-| **13. O sistema deve possibilitar a transição entre os modos claro e escuro**                                                                                                  |  | :green_circle: Concluído  |
+| **13. O sistema deve possibilitar a transição entre os modos claro e escuro**                                                                                                  | O sistema possibilita a utilização do dark mode | :green_circle: Concluído  | 
 
 Legendas:  
 :green_circle: Concluído  
