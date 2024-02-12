@@ -14,4 +14,4 @@ class TreinoAdmin(admin.ModelAdmin):
 
 @admin.register(models.UserProfile)
 class UserProfile(admin.ModelAdmin):
-    list_display = 'user_id', 'peso', 'altura', 'data_nascimento', 'id'
+    list_display = 'user_id', 'peso', 'altura', 'data_nascimento', 'id',

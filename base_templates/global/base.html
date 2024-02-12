@@ -8,7 +8,7 @@
   <title> {{site_title}} - JSOM </title>
 </head>
 
-<body class="g-sidenav-show  bg-gray-100">
+<body class="g-sidenav-show bg-gray-100">
 
   
   {% include "global/partials/aside.html" %} {% comment %} Incluindo Menu {% endcomment %}
@@ -561,12 +561,14 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+  
 
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="{% static "assets/js/material-dashboard.min.js" %}"></script>
+  <script src="{% static "global/js/remove_class.js" %}"></script>
+  <script src="{% static "assets/js/material-dashboard.js" %}"></script>
 
 </body>
 </html>

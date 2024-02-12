@@ -18,6 +18,7 @@ def index(request):
         'categorias': categorias,
         'lista_treinos': lista_treinos,
     }
+    
     return render(
         request,
         'JSOM_SGA/index.html',
