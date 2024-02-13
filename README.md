@@ -14,10 +14,10 @@
 | **3. O sistema deve permitir a recuperação de senha dos aluno**                                      |  | :white_circle: Nada Feito  |
 | **4. O sistema deve permitir que o administrador visualize a senha do aluno**                        |  | :white_circle: Nada Feito  |
 | **5. O sistema deve conceder ao aluno a possibilidade de visualizar e gerenciar o perfil**           | O sistema já permite o aluno vizualizar e atualizar dados como peso, altura e data de nascimento | :green_circle: Concluído  |
-| **6. O sistema deve permitir que o administrador gerencie os treinos de cada aluno**                 | O sistema atualmente só está permitindo o admin adicionar, editar, excluir e visualizar os detalhes dos treinos dos alunos | :green_circle: Concluído |
+| **6. O sistema deve permitir que o administrador gerencie os treinos de cada aluno**                 | O sistema já permite o admin adicionar, editar, excluir e visualizar os detalhes dos treinos dos alunos | :green_circle: Concluído |
 | **7. O sistema deve permitir que o aluno acesse os seus treinos diários**                            | O sistema já permite que o aluno acesse seus treinos por categoria | :green_circle: Concluído |
 | **8. O sistema deve fornecer uma funcionalidade para a conclusão dos exercícios agendados aos alunos no respectivo dia**                                                       |  | :white_circle: Nada Feito  |
-| **9. O sistema deve possibilitar o administrador personalizar as informações do perfil dos alunos**  | O sistema atualmente só permite que o admin atualizar todas as informações do Aluno | :green_circle: Concluído |
+| **9. O sistema deve possibilitar o administrador personalizar as informações do perfil dos alunos**  | O sistema já permite que o admin atualizar todas as informações do Aluno | :green_circle: Concluído |
 | **10. O sistema deve integrar balança inteligente de bioimpedância para o preenchimento automático de dados corporais do aluno**                                               |  | :white_circle: Nada Feito  |
 | **11. O sistema deve notificar mensalmente ao aluno a possibilidade de atualização das informações**                                                                           |  | :white_circle: Nada Feito  |
 | **12. O sistema deve apresentar de forma clara e acessível às estatísticas detalhadas sobre as métricas corporais e o desempenho semanal de cada aluno na página dashboard**   |  | :white_circle: Nada Feito  |
