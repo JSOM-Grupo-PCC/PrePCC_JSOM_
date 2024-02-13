@@ -238,22 +238,39 @@
   font-size: 0.9rem !important;
 }
 
-.h-200 {
-  height: 200% !important;
-}
-
 .text-branco-50 {
   color: rgba(255, 255, 255, 0.637) !important;
 }
 
-.card-hover {
+
+
+
+.card-hover_dark {
   transition: all 0.3s ease;
 }
 
-.card-hover:hover {
+.card-hover_dark:hover {
   box-shadow: 0 14px 26px -12px rgba(52, 71, 103, 0.4), 0 4px 23px 0 rgba(52, 71, 103, 0.15), 0 8px 10px -5px rgba(52, 71, 103, 0.2);
 }
 
-#sidenav-main {
-  background-color: #313952; /* Cor de fundo escuro desejada */
+.card-hover_jsom {
+  transition: all 0.3s ease;
+}
+
+.card-hover_jsom:hover {
+  box-shadow: 0 14px 26px -12px rgba(52, 71, 103, 0.4), 0 4px 23px 0 rgba(52, 71, 103, 0.15), 0 8px 10px -5px rgba(52, 71, 103, 0.2);
+}
+
+.dark-version .card-hover_dark {
+  transition: all 0.3s ease;
+}
+.dark-version .card-hover_dark:hover {
+  box-shadow: 0 14px 26px -12px rgba(44, 63, 95, 0.952), 0 4px 23px 0 rgba(52, 71, 103, 0.15), 0 8px 10px -5px rgba(52, 71, 103, 0.2);
+}
+
+.dark-version .card-hover_jsom {
+  transition: all 0.3s ease;
+}
+.dark-version .card-hover_jsom:hover {
+  box-shadow: 0 14px 26px -12px rgba(253, 59, 0, 0.877), 0 4px 23px 0 rgba(103, 64, 52, 0.15), 0 8px 10px -5px rgba(103, 62, 52, 0.2);
 }
