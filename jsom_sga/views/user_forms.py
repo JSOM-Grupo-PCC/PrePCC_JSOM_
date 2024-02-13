@@ -105,8 +105,8 @@ def aluno_update(request):
 class BootstrapAuthenticationForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(BootstrapAuthenticationForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'class': 'form-control border-1 border-jsom shadow-big mb-2'})
-        self.fields['password'].widget.attrs.update({'class': 'form-control border-1 border-jsom shadow-big mb-4'})
+        self.fields['username'].widget.attrs.update({'class': 'form-control mb-2 text-white'})
+        self.fields['password'].widget.attrs.update({'class': 'form-control mb-2 text-white'})
 
 def login_view(request):
     form = BootstrapAuthenticationForm(request)
@@ -117,7 +117,6 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             auth.login(request, user)
-            messages.success(request, f'Usuario {user.username} logado com sucesso!')
             return redirect('JSOM_SGA:index')
     
     return render(

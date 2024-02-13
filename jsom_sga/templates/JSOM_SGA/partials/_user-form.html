@@ -1,39 +1,28 @@
 <form 
-class="row g-3 d-flex flex-column align-items-center " 
 action=" {{ form_action }}" 
 method="POST" 
 >
     {% csrf_token %}
 
     {% for field in form %}
-      <div class="col-md-6">
-        <div class="d-flex">
-          <label for="{{field.id_for_label}}" class="form-label fw-bold text-shadow-big">{{field.label}} </label>
+      <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        <div class="input-group input-group-outline is-filled">
+          <label for="{{field.id_for_label}}" class="form-label">{{field.label}} </label>
+          {{ field }}
           {% if field.help_text %}
             <p class="help-text text-danger fw-bold ">
               {{ field.help_text }}
             </p>
           {% endif %}
+          {{ field.errors }}
         </div>
-        {{ field }}
-        {{ field.errors }}
-
-
-      </div>     
+      </div>
     {% endfor %}
 
     {% if form.non_field_errors %}
-      <div class="form-content">
-        <div class="form-group">
-          {% for non_field_errors in form.non_field_errors %}
-            <div class="message error">
-              {{ non_field_errors }}
-            </div>
-          {% endfor %}
-        </div>
-      </div>
+      {% for non_field_errors in form.non_field_errors %}
+          {{ non_field_errors }}
+      {% endfor %}
     {% endif %}
-    <div class="col-md-6">
-      <input class="btn bg-jsom shadow-big w-100 mb-5 fs-5 fw-semibold" type="submit"></input>
-    </div>
+    <input class="btn bg-gradient-primary_jsom w-100 mb-5 fs-5 fw-semibold" type="submit"></input>
   </form> 

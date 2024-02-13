@@ -22411,14 +22411,14 @@ body.dark-version {
   border-color: transparent;
 }
 
-.input-group.input-group-outline.is-focused .form-label+.form-control,
+/* .input-group.input-group-outline.is-focused .form-label+.form-control,
 .input-group.input-group-outline.is-filled .form-label+.form-control {
   border-color: #e91e63 !important;
   border-top-color: transparent !important;
   box-shadow: inset 1px 0 #e91e63, inset -1px 0 #e91e63, inset 0 -1px #e91e63;
-}
+} */
 
-.input-group.input-group-outline.is-focused .form-label,
+/* .input-group.input-group-outline.is-focused .form-label,
 .input-group.input-group-outline.is-filled .form-label {
   width: 100%;
   height: 100%;
@@ -22426,7 +22426,7 @@ body.dark-version {
   color: #e91e63;
   display: flex;
   line-height: 1.25 !important;
-}
+} */
 
 .input-group.input-group-outline.is-focused .form-label:before,
 .input-group.input-group-outline.is-focused .form-label:after,
@@ -22435,13 +22435,13 @@ body.dark-version {
   opacity: 1;
 }
 
-.input-group.input-group-outline.is-focused .form-label:before,
+/* .input-group.input-group-outline.is-focused .form-label:before,
 .input-group.input-group-outline.is-focused .form-label:after,
 .input-group.input-group-outline.is-filled .form-label:before,
 .input-group.input-group-outline.is-filled .form-label:after {
   border-top-color: #e91e63;
   box-shadow: inset 0 1px #e91e63;
-}
+} */
 
 .input-group.input-group-outline.is-valid .form-control {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8'%3e%3cpath fill='%2366d432' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");

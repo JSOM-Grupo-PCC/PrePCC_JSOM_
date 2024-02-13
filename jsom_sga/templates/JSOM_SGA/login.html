@@ -1,10 +1,29 @@
-{% extends "global/base.html" %}
+{% extends "global/base_login.html" %}
 
-{% block corpo %}
-
-<div class="container m-4">    
-    <h2 class="mb-3 fs-2 form-text text-center">{{ site_title }}</h2>
-    {% include "JSOM_SGA/partials/_user-form.html" %}
-</div>
-
-{% endblock corpo %}
+{% block forms %} 
+    <form role="form" class="text-start" action=" {{ form_action }}" method="POST" >
+        {% csrf_token %}
+        <div class="text-center mt-4">
+            {% for field in form %}
+                <div class=" d-flex align-items-center">
+                    <div class="input-group input-group-outline mb-3 is-filled">
+                        <label for="{{field.id_for_label}}" class="form-label">{{field.label}} </label>
+                        {{ field }}
+                        {% if field.help_text %}
+                            <p class="help-text text-danger fw-bold ">
+                                {{ field.help_text }}
+                            </p>
+                        {% endif %}
+                        {{ field.errors }}
+                    </div>
+                </div>
+            {% endfor %}
+            {% if form.non_field_errors %}
+                {% for non_field_errors in form.non_field_errors %}
+                    {{ non_field_errors }}
+                {% endfor %}
+            {% endif %}
+            <button type="submit" class="btn bg-gradient-primary_jsom w-100 my-4 mb-2 fs-6">Entra</button>
+        </div>
+    </form>
+{% endblock forms %}

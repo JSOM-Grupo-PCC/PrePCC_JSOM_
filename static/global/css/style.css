@@ -179,6 +179,22 @@
     width: 1.9em !important;
     height: 1.9em !important;
 }
+
+/* alto complete dos inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgb(255, 255, 255) !important;
+  -webkit-box-shadow: 0 0 0px 1000px #00000000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 /* Cofiguração do template do bootstrap*/
 
 .bg-gradient-primary_jsom {
@@ -242,9 +258,6 @@
   color: rgba(255, 255, 255, 0.637) !important;
 }
 
-
-
-
 .card-hover_dark {
   transition: all 0.3s ease;
 }
@@ -273,4 +286,31 @@
 }
 .dark-version .card-hover_jsom:hover {
   box-shadow: 0 14px 26px -12px rgba(253, 59, 0, 0.877), 0 4px 23px 0 rgba(103, 64, 52, 0.15), 0 8px 10px -5px rgba(103, 62, 52, 0.2);
+}
+
+.input-group.input-group-outline.is-focused .form-label+.form-control, .input-group.input-group-outline.is-filled .form-label+.form-control {
+  border-color: #ec442a !important;
+  border-top-color: transparent !important;
+  box-shadow: inset 1px 0 #ec442a, inset -1px 0 #ec442a, inset 0 -1px #ec442a !important;
+}
+
+.input-group.input-group-outline.is-focused .form-label,
+.input-group.input-group-outline.is-filled .form-label {
+  width: 100%;
+  height: 100%;
+  font-size: 0.6875rem !important;
+  color: #ec442a !important;
+  display: flex;
+  line-height: 1.25 !important;
+}
+.input-group.input-group-outline.is-focused .form-label:before,
+.input-group.input-group-outline.is-focused .form-label:after,
+.input-group.input-group-outline.is-filled .form-label:before,
+.input-group.input-group-outline.is-filled .form-label:after {
+  border-top-color: #ec442a !important;
+  box-shadow: inset 0 1px #ec442a !important;
+}
+
+.shadow-primary_jsom {
+  box-shadow: 0 4px 20px 0 rgba(133, 27, 0, 0.281), 0 7px 10px -3px rgba(233, 61, 30, 0.541) !important;
 }
