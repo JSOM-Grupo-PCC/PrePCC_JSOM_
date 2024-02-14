@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib import messages, auth
+from django.contrib import auth
 from jsom_sga.forms import RegisterForm, RegisterUpdateForm, AlunoUpdateForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from jsom_sga.models import UserProfile
@@ -22,11 +22,11 @@ def register(request):
             user_profile = UserProfile(user=user, peso=None, altura=None, data_nascimento=None)
             user_profile.save()         
 
-            return redirect('JSOM_SGA:login')
+            return redirect('JSOM_SGA:lista_alunos')
 
     return render(
         request,
-        'JSOM_SGA/register.html',
+        'USER/register.html',
         {
             'form': form,
             'site_title': "Cadastrando novo Aluno",
@@ -35,10 +35,10 @@ def register(request):
     )
 
 @user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:login')
-def user_update(request):
+def admin_update(request):
     user = request.user
     user_profile = user.userprofile  # Acesso ao UserProfile associado
-    user_update = "active bg-gradient-primary_jsom"
+    admin_update = "active bg-gradient-primary_jsom"
 
     form = RegisterUpdateForm(instance=user, initial={
         'peso': user_profile.peso,
@@ -57,15 +57,15 @@ def user_update(request):
             user_profile.data_nascimento = form.cleaned_data['data_nascimento']
             user_profile.save()
 
-            return redirect('JSOM_SGA:login')
+            return redirect('JSOM_SGA:lista_alunos')
 
     return render(
         request,
-        'JSOM_SGA/user_update.html',
+        'USER/admin_update.html',
         {
             'form': form,
             'site_title': "Update Admin",
-            'user_update': user_update,
+            'admin_update': admin_update,
         }
     )
 
@@ -95,7 +95,7 @@ def aluno_update(request):
 
     return render(
         request,
-        'JSOM_SGA/aluno_update.html',
+        'USER/aluno_update.html',
         {
             'form': form,
             'site_title': "Atualizando dados do Aluno"
@@ -121,7 +121,7 @@ def login_view(request):
     
     return render(
         request,
-        'JSOM_SGA/login.html',
+        'USER/login.html',
         {
             'form': form,
             'site_title': "Login User",

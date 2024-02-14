@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from jsom_sga.models import Treino, UserProfile
 from django.utils import timezone
 
-@login_required(login_url='JSOM_SGA:login')
+@login_required(login_url='USER:login')
 @user_passes_test(lambda u: not u.is_staff, login_url='JSOM_SGA:lista_alunos')
 def index(request):
     user = request.user
@@ -33,7 +33,7 @@ def detalhes_treino(request, treino_id):
         'site_title': site_title,
         'treino': treino
     }
-    return render(request, 'JSOM_SGA/detalhes_treino.html', context)
+    return render(request, 'CRUD_treino/detalhes_treino.html', context)
 
 @login_required(login_url='JSOM_SGA:index')
 def perfil_aluno(request, user_id):
@@ -55,5 +55,5 @@ def perfil_aluno(request, user_id):
         'perfil_aluno': perfil_aluno,
     }
 
-    return render(request, 'JSOM_SGA/perfil_aluno.html', context)
+    return render(request, 'USER/perfil_aluno.html', context)
 

@@ -3,13 +3,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from jsom_sga.models import UserProfile, Treino
 from django.utils import timezone
 from django.contrib.auth.models import User
-from jsom_sga.forms import TreinoForm
-from jsom_sga.forms import RegisterUpdateForm
+from jsom_sga.forms import TreinoForm, RegisterUpdateForm
 
-@user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:login')
+@user_passes_test(lambda u: u.is_staff, login_url='USER:login')
 def admin_aluno_update(request, user_id):
     aluno = get_object_or_404(User, id=user_id)  # Obtendo diretamente o usuário
     user_profile = aluno.userprofile  # Acesso ao UserProfile associado
+    site_title = f"Atualizando dados do aluno {aluno.username}"
 
     form = RegisterUpdateForm(instance=aluno, initial={
         'peso': user_profile.peso,
@@ -32,10 +32,10 @@ def admin_aluno_update(request, user_id):
 
     return render(
         request,
-        'JSOM_SGA/aluno_update.html',
+        'USER/aluno_update.html',
         {
             'form': form,
-            'site_title': "Atualizando dados do Aluno"
+            'site_title': site_title,
         }
     )
 
@@ -57,7 +57,7 @@ def adicionar_treino_admin(request, user_id):
         'site_title': site_title,
         'form': form
     }
-    return render(request, 'JSOM_SGA/adicionar_treino.html', context)
+    return render(request, 'CRUD_treino/adicionar_treino.html', context)
 
 @user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:index')
 def atualizar_treino_admin(request, treino_id, user_id):
@@ -77,7 +77,7 @@ def atualizar_treino_admin(request, treino_id, user_id):
         'treino': treino,
         'form': form,
     }
-    return render(request, 'JSOM_SGA/atualizar_treino.html', context)
+    return render(request, 'CRUD_treino/atualizar_treino.html', context)
 
 @user_passes_test(lambda u: u.is_staff, login_url='JSOM_SGA:index')
 def excluir_treino_admin(request, treino_id, user_id):
@@ -122,5 +122,5 @@ def perfil_aluno_admin(request, user_id):
         'categorias': categorias,
     }
 
-    return render(request, 'JSOM_SGA/perfil_aluno.html', context)
+    return render(request, 'USER/perfil_aluno.html', context)
 
