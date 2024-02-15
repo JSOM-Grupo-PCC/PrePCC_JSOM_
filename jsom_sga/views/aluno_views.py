@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from jsom_sga.models import Treino, UserProfile
 from django.utils import timezone
 
-@login_required(login_url='USER:login')
+@login_required(login_url='JSOM_SGA:login')
 @user_passes_test(lambda u: not u.is_staff, login_url='JSOM_SGA:lista_alunos')
 def index(request):
     user = request.user

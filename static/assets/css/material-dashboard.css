@@ -21710,7 +21710,6 @@ fieldset:disabled .btn {
 }
 
 .dark-version .accordion .accordion-button {
-  border-color: rgba(255, 255, 255, 0.4) !important;
   color: #fff;
   opacity: .8;
 }

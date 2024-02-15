@@ -257,6 +257,12 @@ select:-webkit-autofill:focus {
 .text-branco-50 {
   color: rgba(255, 255, 255, 0.637) !important;
 }
+.text-branco-90 {
+  color: rgba(255, 255, 255, 0.877) !important;
+}
+.text-branco {
+  color: rgb(255, 255, 255) !important;
+}
 
 .card-hover_dark {
   transition: all 0.3s ease;
@@ -323,4 +329,30 @@ select:-webkit-autofill:focus {
 label, .form-label {
   font-weight: 500 !important;
   color: #000f1d !important;
+}
+
+.accordion-body a{
+  transition: 0.3s all;
+}
+.accordion-body a:hover{
+  color: #eb2506 !important;
+  transition: 0.3s all;
+}
+
+.form-check:not(.form-switch) .form-check-input[type="checkbox"]:checked {
+  background: #ec442a !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #ec442a !important;
+}
+
+.border-bottom-2 {
+  border-bottom: 2px solid #7b809a !important;
+}
+.border-bottom-2:not(.collapsed) {
+  border-bottom: 2px solid #ec442a !important;
+}
+.fun_treino a .btn {
+  margin-bottom: 0rem !important;
 }

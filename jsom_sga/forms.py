@@ -9,8 +9,8 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = [
-            'first_name', 'last_name',  
-            'username', 'password1', 'password2',
+            'username', 'first_name', 'last_name',  
+             'password1', 'password2',
             # 'peso', 'altura', 'data_nascimento',
         ]
 
@@ -20,7 +20,7 @@ class RegisterForm(UserCreationForm):
         min_length=3,
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control mb-2'
+                'class': 'form-control mb-3'
             }
         )
     )
@@ -29,14 +29,14 @@ class RegisterForm(UserCreationForm):
         min_length=3,
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control mb-2'
+                'class': 'form-control mb-3'
             }
         )
     )    
     username = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control mb-2'
+                'class': 'form-control mb-3'
             }
         )
     )
@@ -44,7 +44,7 @@ class RegisterForm(UserCreationForm):
         label="Senha",  
         widget=forms.PasswordInput(
             attrs={
-                'class': 'form-control mb-2'
+                'class': 'form-control mb-3'
             }
         )
     )
@@ -52,7 +52,7 @@ class RegisterForm(UserCreationForm):
         label="Confirme a Senha",
         widget=forms.PasswordInput(
             attrs={
-                'class': 'form-control mb-4'
+                'class': 'form-control mb-5'
             }
         )
     )
