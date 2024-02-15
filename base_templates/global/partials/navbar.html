@@ -10,16 +10,16 @@
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5 fw-semibold ">
             <li class="breadcrumb-item text-sm">
                 {% if user.is_staff %}
-                  <a class="opacity-5 text-dark fs-5" href="{% url "JSOM_SGA:admin_update" %}">
+                  <a class="opacity-5 text-dark fs-6" href="{% url "JSOM_SGA:admin_update" %}">
                     Admin
                   </a>
                 {% else %}
-                  <a class="opacity-5 text-dark fs-5" href="{% url "JSOM_SGA:perfil_aluno" user_id=request.user.id %}">
-                    Aluno 
+                  <a class="opacity-5 text-dark fs-6" href="{% url "JSOM_SGA:perfil_aluno" user_id=request.user.id %}">
+                    {{user.username}} 
                   </a>
                 {% endif %}             
             </li>
-            <li class="breadcrumb-item text-dark active fs-5" >
+            <li class="breadcrumb-item text-dark active fs-6" >
               {{site_title}}
             </li>
           </ol>
@@ -31,7 +31,9 @@
           {% if user.is_staff %}
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
               <div class="input-group input-group-outline">
-                <label class="form-label">Buscar alunos... </label>
+                <label class="form-label text-nowrap">
+                  <i class="bi bi-search me-2"> </i>
+                    Alunos</label>
                 <input type="text" class="form-control">
               </div>
             </div>
@@ -137,14 +139,14 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item d-flex align-items-center">
+            <!-- <li class="nav-item d-flex align-items-center">
               <a href="{% url "JSOM_SGA:logout" %}" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
 
                 <span class="d-sm-inline d-none">Sign In</span>
 
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
