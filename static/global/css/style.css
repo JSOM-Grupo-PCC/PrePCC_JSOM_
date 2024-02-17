@@ -54,10 +54,10 @@
 }
 
 .border-jsom{
-    border:solid #f45038 1.5px;   
+    border:solid #f45038 2px;   
 }
 .border-jsom:focus{
-    border:solid #f45038 1.5px; 
+    border:solid #f45038 2px; 
 }
 .border-jsom-claro{
     border:solid #6b0e0049 1.5px !important;   
@@ -199,6 +199,9 @@ select:-webkit-autofill:focus {
 
 .bg-gradient-primary_jsom {
   background-image: linear-gradient(195deg, #ec442a 0%, #c53019 100%);
+}
+.text-primary_jsom {
+  color: #ec442a !important;
 }
 
 .btn-primary_jsom,

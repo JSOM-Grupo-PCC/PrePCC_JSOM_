@@ -1,133 +1,131 @@
 {% extends "global/base.html" %}
-{% block corpo %}
-<div class="w-100 table-responsive">
-    <h1 class="m-3 fs-1 form-text text-center fw-bold">
-        Perfil do aluno <span class="text-jsom-escuro text-decoration-underline">{{ aluno.user.username }}</span>
-    </h1>
-    <div class="card border-jsom-claro shadow-big mx-4 mb-5">
+{% block corpo %}        
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <h1 class="fs-1 text-center fw-bold ">
+          Perfil do aluno <span class="text-primary_jsom text-decoration-underline">{{ aluno.user.username }}</span>
+      </h1>
+      <div class="card card-frame mt-3">
         <div class="card-body">
-            <h5 class="card-title fw-bold">Informações do Aluno:</h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Usuário:</strong> {{ aluno.user.username }}</li>
-                <li class="list-group-item"><strong>Nome:</strong> {{ aluno.user.first_name }}</li>
-                <li class="list-group-item"><strong>Sobrenome:</strong> {{ aluno.user.last_name }}</li>
-                <li class="list-group-item"><strong>Peso:</strong> {{ aluno.peso }}</li>
-                <li class="list-group-item"><strong>Altura:</strong> {{ aluno.altura }}</li>
-                <li class="list-group-item"><strong>Idade:</strong> {{ idade }} Anos</li>
-                {% if user.is_staff %}
-                  <li class="list-group-item">
-                    <a class="nav-link fs-5 active" aria-current="page" href="{% url "JSOM_SGA:admin_aluno_update" aluno.user.id %}">
-                      <button class="btn text-white fw-semibold icon-link icon-link-hover shadow-big" style="background-color: #7A0701; --bs-icon-link-transform: translate3d(0, -.125rem, 0);">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-person-fill-gear" viewBox="0 0 16 16">
-                          <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4m9.886-3.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
-                        </svg>
-                        Alterar Informações
-                      </button>
-                    </a>
-                  </li>
-                {% else %}
-                  <li class="list-group-item">
-                    <a class="nav-link fs-5 active" aria-current="page" href="{% url "JSOM_SGA:aluno_update" %}">
-                      <button class="btn text-white fw-semibold icon-link icon-link-hover shadow-big" style="background-color: #7A0701; --bs-icon-link-transform: translate3d(0, -.125rem, 0);">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-person-fill-gear" viewBox="0 0 16 16">
-                          <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4m9.886-3.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
-                        </svg>
-                        Alterar Perfil
-                      </button>
-                    </a>
-                  </li>
-                {% endif %}
-            </ul>
+          <div class="d-flex justify-content-between align-items-center flex-wrap">
+            <h6 class="fw-bold">Informações do Aluno</h6>
+            {% comment %} Se ele for Admin ele carega esse link se eu for aluno ele carega outro link {% endcomment %}
+            <a
+              aria-current="page"
+              {% if user.is_staff %}
+                href="{% url "JSOM_SGA:admin_aluno_update" aluno.user.id %}"
+              {% else %}
+                href="{% url "JSOM_SGA:aluno_update" %}"
+              {% endif %}
+            >
+              <button class="btn bg-gradient-primary_jsom fw-semibold icon-link icon-link-hover p-2" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar perfil">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-person-fill-gear" viewBox="0 0 16 16">
+                  <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4m9.886-3.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+                </svg>
+              </button>
+            </a>
+          </div>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><strong>Usuário:</strong> {{ aluno.user.username }}</li>
+                  <li class="list-group-item"><strong>Nome:</strong> {{ aluno.user.first_name }}</li>
+                  <li class="list-group-item"><strong>Sobrenome:</strong> {{ aluno.user.last_name }}</li>
+                  <li class="list-group-item"><strong>Peso:</strong> {{ aluno.peso }}</li>
+                  <li class="list-group-item"><strong>Altura:</strong> {{ aluno.altura }}</li>
+                  <li class="list-group-item"><strong>Idade:</strong> {{ idade }} Anos</li>
+              </ul>
         </div>
+      </div>
     </div>
-    {% if user.is_staff %}
-      <h2 class="mt-4 mb-3 fs-3 form-text text-center">Lista de Treinos do Aluno</h2>
-      {% if treinos %}
-        <div class="container mb-3">
-          <div class="row">
-            <div class="col-md-10 mx-auto">
-              <div class="accordion" id="accordionRental">
+  </div>
+</div>
+{% if user.is_staff %}
+  <h2 class="mt-4 mb-3 fs-3 text-center">Lista de Treinos</h2>
+  {% if treinos %}
+    <div class="container mb-3">
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <div class="accordion" id="accordionRental">
+            
+            {% for categoria in categorias %}
+              <div class="accordion-item mb-3">{% comment %} Accordion inicio{% endcomment %}
+  
+                {% comment %} Titulo {% endcomment %}
+                <h3 class="accordion-header" id="headingOne{{ forloop.counter }}" >
+                  <button class="accordion-button border-bottom-2 font-weight-bold collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne{{ forloop.counter }}">
+                    {{ categoria.1 }} <!-- Exibindo o nome da categoria -->
+                    <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                    <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                  </button>
+                </h3>
                 
-                {% for categoria in categorias %}
-                  <div class="accordion-item mb-3">{% comment %} Accordion inicio{% endcomment %}
-      
-                    {% comment %} Titulo {% endcomment %}
-                    <h3 class="accordion-header" id="headingOne{{ forloop.counter }}" >
-                      <button class="accordion-button border-bottom-2 font-weight-bold collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne{{ forloop.counter }}">
-                        {{ categoria.1 }} <!-- Exibindo o nome da categoria -->
-                        <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
-                        <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
-                      </button>
-                    </h3>
-                    
-                    {% comment %} corpo {% endcomment %}
-                    <div id="collapseOne{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="headingOne{{ forloop.counter }}" data-bs-parent="#accordionRental" style="">
-                      <!-- Lista de treinos da categoria -->
-                      {% for treino in treinos %}
-                        {% if treino.categoria == categoria.0 %}
-                          <div class="accordion-body text-lg accordion d-flex justify-content-between">
-                            <a class="fw-bolder opacity-8" href="{% url 'JSOM_SGA:detalhes_treino' treino.id %}">{{ treino.nome }}</a>
-                            <div class="fun_treino">
-                                  <!--botão de deletar treino-->
-                                  <a style="text-decoration: none;" href="{% url 'JSOM_SGA:excluir_treino_admin' user_id=aluno.user.id treino_id=treino.id %}">
-                                    <button type="button" class="btn bg-gradient-primary_jsom p-2 icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Deletar treino">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                                        </svg>
-                                    </button>
-                                  </a>
+                {% comment %} corpo {% endcomment %}
+                <div id="collapseOne{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="headingOne{{ forloop.counter }}" data-bs-parent="#accordionRental" style="">
+                  <!-- Lista de treinos da categoria -->
+                  {% for treino in treinos %}
+                    {% if treino.categoria == categoria.0 %}
+                      <div class="accordion-body text-lg accordion d-flex justify-content-between">
+                        <a class="fw-bolder opacity-8" href="{% url 'JSOM_SGA:detalhes_treino' treino.id %}">{{ treino.nome }}</a>
+                        <div class="fun_treino">
+                              <!--botão de deletar treino-->
+                              <a style="text-decoration: none;" href="{% url 'JSOM_SGA:excluir_treino_admin' user_id=aluno.user.id treino_id=treino.id %}">
+                                <button type="button" class="btn bg-gradient-primary_jsom p-2 icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Deletar treino">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                                    </svg>
+                                </button>
+                              </a>
 
-                                  <!--botão de editar treino-->
-                                  <a style="text-decoration: none;" href="{% url 'JSOM_SGA:atualizar_treino_admin' user_id=aluno.user.id treino_id=treino.id %}">
-                                    <button type="button" class="btn bg-gradient-primary_jsom p-2 icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar treino">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                                        </svg>
-                                    </button>
-                                  </a>
-                            </div>
-                          </div>
-                          <hr class="horizontal dark mt-0 mb-0">
-                        {% endif %}
-                      {% endfor %}
-                        <!--botão de Adicinar novo treino-->
-                      <a href="{% url "JSOM_SGA:adicionar_treino_admin" aluno.user.id %}">
-                        <button type="button" class="btn mt-2 p-2 bg-gradient-primary_jsom icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Adicinar treino">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-                            </svg>
-                        </button>
-                      </a>
-                    </div>
-      
-                  </div>{% comment %} Accordion Fim{% endcomment %}
-                  
-                {% endfor %}
-              </div>
-            </div>
+                              <!--botão de editar treino-->
+                              <a style="text-decoration: none;" href="{% url 'JSOM_SGA:atualizar_treino_admin' user_id=aluno.user.id treino_id=treino.id %}">
+                                <button type="button" class="btn bg-gradient-primary_jsom p-2 icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar treino">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                                    </svg>
+                                </button>
+                              </a>
+                        </div>
+                      </div>
+                      <hr class="horizontal dark mt-0 mb-0">
+                    {% endif %}
+                  {% endfor %}
+                    <!--botão de Adicinar novo treino-->
+                  <a href="{% url "JSOM_SGA:adicionar_treino_admin" aluno.user.id %}">
+                    <button type="button" class="btn mt-2 p-2 bg-gradient-primary_jsom icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Adicinar treino">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                        </svg>
+                    </button>
+                  </a>
+                </div>
+  
+              </div>{% comment %} Accordion Fim{% endcomment %}
+              
+            {% endfor %}
           </div>
         </div>
-    
+      </div>
+    </div>
 
-      {% else %}      
-        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-          <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
-            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-          </symbol>
-        </svg>
-        <div class="alert bg-gradient-primary_jsom alert-dismissible fade show d-flex justify-content-center mx-4" role="alert">
-          <svg class="bi flex-shrink-0 me-2 text-branco-90" role="img" aria-label="Danger:" width="30" height="30">
-            <use xlink:href="#exclamation-triangle-fill"/>
-          </svg>
-          <p class="fs-5 m-0 ">
-            <strong class="link-light">Atenção!</strong> 
-            <span class="link-light fw-bolder">Você não cadastrou nenhum treino para esse aluno, mais você pode</span>
-            <a href="{% url 'JSOM_SGA:adicionar_treino_admin' aluno.user.id %}" class="link-light text-decoration-underline fw-bold">
-              Adicionar Treino Aqui!!
-            </a>
-        </div>
-      {% endif %}
-    {% endif %}
-</div>
+
+  {% else %}      
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+      </symbol>
+    </svg>
+    <div class="alert bg-gradient-primary_jsom alert-dismissible fade show d-flex justify-content-center mx-4" role="alert">
+      <svg class="bi flex-shrink-0 me-2 text-branco-90" role="img" aria-label="Danger:" width="30" height="30">
+        <use xlink:href="#exclamation-triangle-fill"/>
+      </svg>
+      <p class="fs-5 m-0 ">
+        <strong class="link-light">Atenção!</strong> 
+        <span class="link-light fw-bolder">Você não cadastrou nenhum treino para esse aluno, mais você pode</span>
+        <a href="{% url 'JSOM_SGA:adicionar_treino_admin' aluno.user.id %}" class="link-light text-decoration-underline fw-bold">
+          Adicionar Treino Aqui!!
+        </a>
+    </div>
+  {% endif %}
+{% endif %}
 {% endblock corpo %}

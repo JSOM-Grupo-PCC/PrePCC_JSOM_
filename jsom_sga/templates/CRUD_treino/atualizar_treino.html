@@ -1,31 +1,41 @@
 {% extends "global/base.html" %}
 {% block corpo %}
-    <div class="container m-3">
-        <h1 class="mb-3 fs-2 form-text text-center">Atualizar Treino</h1>
-        <form method="post" enctype="multipart/form-data" class="row g-3 d-flex flex-column align-items-center" >
+<div class="container mb-3">
+    <div class="row">
+      <div class="col-md-10 mx-auto">
+        <form role="form" class="row g-3 d-flex flex-column align-items-center" enctype="multipart/form-data"  action=" {{ form_action }}" method="POST" >
+            <h2 class="font-weight-bolder mb-0 col-md-6">
+                {{ site_title }} 
+            </h2>
             {% csrf_token %}
             {% for field in form %}
-                <div class="col-md-6">
-                <div class="d-flex">
-                    <label for="{{field.id_for_label}}" class="form-label fw-bold text-shadow-big">{{field.label}} </label>
-                    {% if field.help_text %}
-                    <p class="help-text text-danger fw-bold ">
-                        {{ field.help_text }}
-                    </p>
-                    {% endif %}
-                </div>
-                {{ field }}
-                {{ field.errors }}
+                <p class="help-text fw-bold ">
+                    {{ field.errors }}
+                </p>
+
+                <div class=" d-flex align-items-center col-md-6">
+
+                    <div class="input-group input-group-outline is-filled">
+                        <label for="{{field.id_for_label}}" class="form-label">
+                            {{field.label}}
+                            {% if field.help_text %}
+                                {{ field.help_text }}
+                            {% endif %}
+                        </label>
+                        {{ field }}
+                    </div>
                 </div>
                 {% if field.name == 'imagem' and field.value.url %}
                     <div class="col-md-6">
-                        <img src="{{ field.value.url }}" class="img-fluid border-jsom shadow-big mb-2 rounded-2 w-100" style="object-fit: cover; " alt="">
+                        <img src="{{ field.value.url }}" class="img-fluid border-jsom mb-2 rounded-2 w-100" style="object-fit: cover; " alt="">
                     </div>
-                {% endif %}    
+                {% endif %}  
             {% endfor %}
             <div class="col-md-6">
-                <input class="btn bg-jsom shadow-big w-100 mb-5 fs-5 fw-semibold" type="submit"></input>
+                <button class="btn bg-gradient-primary_jsom mb-2 w-100 fs-6" type="submit">{{site_title}}</button>
             </div>
         </form>
+      </div>
     </div>
+  </div>
 {% endblock corpo %}

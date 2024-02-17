@@ -81,7 +81,7 @@ class TreinoForm(forms.ModelForm):
         help_text='*',
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+                'class': 'form-control'
             }
         ),
         error_messages={
@@ -93,7 +93,7 @@ class TreinoForm(forms.ModelForm):
         help_text='*',
         widget=forms.Select(
             attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+                'class': 'form-control'
             }
         ),
         choices=Treino.CATEGORIA_CHOICES  # Acesse as opções diretamente da instância do modelo
@@ -103,7 +103,8 @@ class TreinoForm(forms.ModelForm):
         required=False,
         widget=forms.Textarea(
             attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2'
+                'class': 'form-control',
+                'style': 'border: 2px solid #f45038 !important; border-top: none !important;'
             }
         ),
     )
@@ -112,7 +113,7 @@ class TreinoForm(forms.ModelForm):
         required=False,
         widget=forms.FileInput(
             attrs={
-                'class': 'form-control border-1 border-jsom shadow-big mb-2',
+                'class': 'form-control mb-4',
                 'accept': 'image/*',
             }
         ),

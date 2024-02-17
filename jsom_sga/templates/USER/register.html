@@ -21,13 +21,11 @@
                     <div class=" d-flex align-items-center">
                         <div class="input-group input-group-outline ">
                             <label for="{{field.id_for_label}}" class="form-label">{{field.label}} </label>
-                            {{ field }}
+                            
                             {% if field.help_text %}
-                                <br>
-                                <p class="help-text text-danger fw-bold ">
-                                    {{ field.help_text }}
-                                </p>
+                                {{ field.help_text }}
                             {% endif %}
+                            {{ field }}
                         </div>
                     </div>
 

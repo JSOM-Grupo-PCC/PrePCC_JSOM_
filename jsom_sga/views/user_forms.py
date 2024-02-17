@@ -98,7 +98,7 @@ def aluno_update(request):
         'USER/aluno_update.html',
         {
             'form': form,
-            'site_title': "Atualizando dados do Aluno"
+            'site_title': "Atualizando dados"
         }
     )
 
