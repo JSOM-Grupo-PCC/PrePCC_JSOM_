@@ -10,39 +10,36 @@
         <div class="row">
           <div class="col-md-10 mx-auto">
             <div class="accordion" id="accordionRental">
-              
-            {% for categoria in categorias %}
-              <div class="accordion-item mb-3">
-                <h3 class="accordion-header" id="headingOne{{ forloop.counter }}">
-                  <button class="accordion-button border-bottom-2 font-weight-bold collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne{{ forloop.counter }}">
-                    {{ categoria.1 }} <!-- Exibindo o nome da categoria -->
-                    <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
-                    <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
-                  </button>
-                </h3>
-                <div id="collapseOne{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="headingOne{{ forloop.counter }}" data-bs-parent="#accordionRental">
-                  <div class="accordion-body">                            
-                    <form method="POST">
-                              {% csrf_token %}
-                    <!-- Lista de treinos da categoria -->
-                    {% for treino in treinos %}
-                      {% if treino.categoria == categoria.0 %}
-                        <div class="d-flex justify-content-between">
-                          <a class="fw-bolder" href="{% url 'JSOM_SGA:detalhes_treino' treino.id %}">{{ treino.nome }}</a>
-                          <div class="form-check form-check-info text-start ps-0 ">
-                                <input class="form-check-input me-3" type="checkbox" name="treino_id" value="{{ treino.id }}" id="treino{{ treino.id }}"
-                                {% if treino.status %} checked {% endif %}>
-                          </div>
-                        </div>
-                        <hr class="horizontal dark mt-0 mb-0">
-                      {% endif %}
-                    {% endfor %}
-                  </form>
+              {% for categoria in categorias %}
+                <div class="accordion-item mb-3">
+                  <h3 class="accordion-header" id="headingOne{{ forloop.counter }}">
+                    <button class="accordion-button border-bottom-2 font-weight-bold collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne{{ forloop.counter }}">
+                      {{ categoria.1 }} <!-- Exibindo o nome da categoria -->
+                      <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                      <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                    </button>
+                  </h3>
+                  <div id="collapseOne{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="headingOne{{ forloop.counter }}" data-bs-parent="#accordionRental">
+                    <div class="accordion-body">                            
+                      <form method="POST">
+                      {% csrf_token %}
+                        <!-- Lista de treinos da categoria -->
+                        {% for treino in treinos %}
+                          {% if treino.categoria == categoria.0 %}
+                            <div class="accordion-body text-lg opacity-8 accordion d-flex justify-content-between">
+                              <a class="fw-bolder" href="{% url 'JSOM_SGA:detalhes_treino' treino.id %}">{{ treino.nome }}</a>
+                              <div class="form-check form-check-info text-start ps-0 ">
+                                <input class="form-check-input me-3" type="checkbox" value="{{ treino.id }}" id="flexCheckDefault" {% if treino.status %} checked {% endif %}>
+                              </div>
+                            </div>
+                            <hr class="horizontal dark mt-0 mb-0">
+                          {% endif %}
+                        {% endfor %}
+                      </form>
+                    </div>
                   </div>
                 </div>
-              </div>
-            {% endfor %}
-  
+              {% endfor %}
             </div>
           </div>
         </div>
@@ -65,6 +62,7 @@
     </div>
   {% endif %}
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>

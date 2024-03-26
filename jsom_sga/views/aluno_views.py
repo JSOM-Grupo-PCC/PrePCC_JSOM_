@@ -23,6 +23,7 @@ def index(request):
     
     return render(request, 'JSOM_SGA/index.html', context)
 
+@login_required(login_url='JSOM_SGA:login')
 def salvar_status_treino(request):
     if request.method == 'POST' and request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         treino_id = request.POST.get('treino_id')
