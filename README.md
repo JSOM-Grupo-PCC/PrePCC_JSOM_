@@ -16,17 +16,18 @@
 | **5. O sistema deve conceder ao aluno a possibilidade de visualizar e gerenciar o perfil**           | O sistema já permite o aluno vizualizar e atualizar dados como peso, altura e data de nascimento | :green_circle: Concluído  |
 | **6. O sistema deve permitir que o administrador gerencie os treinos de cada aluno**                 | O sistema já permite o admin adicionar, editar, excluir e visualizar os detalhes dos treinos dos alunos | :green_circle: Concluído |
 | **7. O sistema deve permitir que o aluno acesse os seus treinos diários**                            | O sistema já permite que o aluno acesse seus treinos por categoria | :green_circle: Concluído |
-| **8. O sistema deve fornecer uma funcionalidade para a conclusão dos exercícios agendados aos alunos no respectivo dia**                                                       |  | :white_circle: Nada Feito  |
-| **9. O sistema deve possibilitar o administrador personalizar as informações do perfil dos alunos**  | O sistema já permite que o admin atualizar todas as informações do Aluno | :green_circle: Concluído |
+| **8. O sistema deve fornecer uma funcionalidade de conclusão dos exercícios agendados aos alunos no respectivo dia**                                                           |  | :yellow_circle: Em Andamento  |
+| **9. O sistema deve possibilitar o administrador personalizar as informações do perfil dos alunos**  | O sistema já permite que o admin atualizar todas as informações do Aluno   | :green_circle: Concluído |
 | **10. O sistema deve integrar balança inteligente de bioimpedância para o preenchimento automático de dados corporais do aluno**                                               |  | :white_circle: Nada Feito  |
 | **11. O sistema deve notificar mensalmente ao aluno a possibilidade de atualização das informações**                                                                           |  | :white_circle: Nada Feito  |
 | **12. O sistema deve apresentar de forma clara e acessível às estatísticas detalhadas sobre as métricas corporais e o desempenho semanal de cada aluno na página dashboard**   |  | :white_circle: Nada Feito  |
 | **13. O sistema deve possibilitar a transição entre os modos claro e escuro**                                                                                                  | O sistema possibilita a utilização do dark mode | :green_circle: Concluído  | 
+| **14. Sistema deve notificar o admin para cadastrar os treinos de novos alunos caso não exista nenhum cadastrado**                                                             |  | :white_circle: Nada Feito  | 
 
 Legendas:  
 :green_circle: Concluído  
-:yellow_circle: Feito em parte <br>
-:large_blue_circle: Em Andamento <br>
+:large_blue_circle: Feito em parte <br>
+:yellow_circle: Em Andamento <br>
 :white_circle: Nada Feito 
 
 ## Diagrama Caso de Uso
@@ -36,7 +37,7 @@ Legendas:
 ![Classe](https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/488711c6-453b-42c3-803d-b81362bcd171)
 
 ## Diagrama Entidade de Relacionamentos 
-![Entidade de Relacionamentos](https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/48cc20b4-b8c1-4b31-b2cd-79c7d5dd93f1)
+![Entidade de Relacionamentos](https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/db2f5622-ccba-4ad3-ae5f-b3a58fa8722c)
 
 ## Configuração do Ambiente
 
