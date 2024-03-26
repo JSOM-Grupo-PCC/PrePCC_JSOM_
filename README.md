@@ -23,6 +23,7 @@
 | **12. O sistema deve apresentar de forma clara e acessível às estatísticas detalhadas sobre as métricas corporais e o desempenho semanal de cada aluno na página dashboard**   |  | :white_circle: Nada Feito  |
 | **13. O sistema deve possibilitar a transição entre os modos claro e escuro**                                                                                                  | O sistema possibilita a utilização do dark mode | :green_circle: Concluído  | 
 | **14. Sistema deve notificar o admin para cadastrar os treinos de novos alunos caso não exista nenhum cadastrado**                                                             |  | :white_circle: Nada Feito  | 
+
 Legendas:  
 :green_circle: Concluído  
 :large_blue_circle: Feito em parte <br>
