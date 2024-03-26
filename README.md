@@ -36,7 +36,7 @@ Legendas:
 ![Classe](https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/488711c6-453b-42c3-803d-b81362bcd171)
 
 ## Diagrama Entidade de Relacionamentos 
-![Entidade de Relacionamentos](https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/48cc20b4-b8c1-4b31-b2cd-79c7d5dd93f1)
+![Entidade de Relacionamentos](https://github.com/JSOM-Grupo-PCC/PrePCC_JSOM_/assets/115905335/db2f5622-ccba-4ad3-ae5f-b3a58fa8722c)
 
 ## Configuração do Ambiente
 
