@@ -12,7 +12,7 @@ urlpatterns = [
 
     # Aluno
     path('aluno/update/', views.aluno_update, name='aluno_update'),
-
+    path('salvar-status-treino/', views.salvar_status_treino, name='salvar_status_treino'),
     path('aluno/perfil/<int:user_id>/', views.perfil_aluno, name='perfil_aluno'),
 
     # treino_aluno (CRUD)

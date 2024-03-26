@@ -24,6 +24,7 @@ class Treino(models.Model):
     categoria = models.CharField(max_length=9, choices=CATEGORIA_CHOICES)
     imagem = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
     descricao = models.TextField(blank=True)
+    status = models.BooleanField(default=False)  # Adicionando o campo status
     owner = models.ForeignKey(
         User,
         on_delete=models.SET_NULL,

@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 from jsom_sga.models import Treino, UserProfile
 from django.utils import timezone
+from django.http import JsonResponse
 
 @login_required(login_url='JSOM_SGA:login')
 @user_passes_test(lambda u: not u.is_staff, login_url='JSOM_SGA:lista_alunos')
@@ -9,6 +10,7 @@ def index(request):
     user = request.user
     categorias = Treino.CATEGORIA_CHOICES
     treinos = Treino.objects.filter(owner=request.user)
+    
     site_title = f'Treinos de {user}'
     lista_treinos = "active bg-gradient-primary_jsom"
     
@@ -19,11 +21,20 @@ def index(request):
         'lista_treinos': lista_treinos,
     }
     
-    return render(
-        request,
-        'JSOM_SGA/index.html',
-        context
-    )
+    return render(request, 'JSOM_SGA/index.html', context)
+
+def salvar_status_treino(request):
+    if request.method == 'POST' and request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+        treino_id = request.POST.get('treino_id')
+        status = request.POST.get('status') == 'true'
+        try:
+            treino = Treino.objects.get(pk=treino_id, owner=request.user)
+            treino.status = status
+            treino.save()
+            return JsonResponse({'success': True})
+        except Treino.DoesNotExist:
+            return JsonResponse({'success': False, 'error_message': 'Treino não encontrado'})
+    return JsonResponse({'success': False, 'error_message': 'Requisição inválida'})
 
 @login_required(login_url='JSOM_SGA:index')
 def detalhes_treino(request, treino_id):
